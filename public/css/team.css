@@ -1,0 +1,754 @@
+/* ── TEAM PAGE SECTIONS ── */
+.team-hero{
+  min-height:72vh;display:flex;align-items:flex-end;
+  position:relative;overflow:hidden;
+  background:linear-gradient(180deg,#060610 0%,#050508 100%);
+  padding-bottom:0;
+}
+.hero-bg-grid{
+  position:absolute;inset:0;z-index:1;
+  background-image:linear-gradient(rgba(77,77,255,.05) 1px, transparent 1px),linear-gradient(90deg,rgba(77,77,255,.05) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,black,transparent);
+}
+.hero-orb{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(77,77,255,.15) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-60%);pointer-events:none;z-index:1;}
+.hero-orb-2{position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(120,80,255,.1) 0%,transparent 70%);top:20%;right:10%;pointer-events:none;z-index:1;animation:glowPulse 5s ease-in-out infinite;}
+
+.team-hero-inner{
+  position:relative;z-index:10;
+  max-width:1300px;margin:0 auto;width:100%;
+  padding:9rem 4rem 5rem;
+  text-align:center;
+}
+.breadcrumb{display:flex;align-items:center;gap:.6rem;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--w60);margin-bottom:2.5rem;animation:fadeUp .6s .1s ease both;justify-content:center;}
+.breadcrumb a{color:var(--w60);text-decoration:none;transition:color .2s;}
+.breadcrumb a:hover{color:var(--blue-b);}
+.breadcrumb-sep{color:var(--w30);}
+.breadcrumb span{color:var(--blue-b);}
+
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(77,77,255,.08);border:1px solid var(--border-b);padding:.4rem 1.1rem;border-radius:100px;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(100,140,255,1);margin-bottom:1.8rem;animation:fadeUp .7s .15s ease both;}
+.hero-eyebrow .dot-live{width:6px;height:6px;background:#00e676;border-radius:50%;animation:pulse 2s infinite;}
+
+.team-hero-inner h1{font-size:clamp(2.8rem,6vw,5rem);font-weight:500;line-height:1.05;letter-spacing:-.03em;margin-bottom:1.5rem;animation:fadeUp .8s .25s ease both;}
+.team-hero-inner h1 .grad{color:var(--blue-b);}
+.team-hero-inner .hero-sub{font-size:1.05rem;line-height:1.8;color:var(--w60);max-width:600px;margin:0 auto 3rem;animation:fadeUp .8s .4s ease both;}
+
+.hero-stats-row{display:flex;justify-content:center;gap:4rem;animation:fadeUp .8s .55s ease both;padding-bottom:1rem;}
+.hstat{text-align:center;}
+.hstat-num{font-size:2.2rem;font-weight:500;color:var(--white);}
+.hstat-num .plus{color:var(--blue-b);}
+.hstat-lbl{font-size:.7rem;color:var(--w60);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem;}
+.hstat-div{width:1px;background:var(--border);align-self:stretch;}
+
+.hero-wave{display:block;width:100%;margin-top:3rem;}
+
+/* FILTER BAR */
+.filter-section{
+  padding:2.5rem 4rem;
+  max-width:1300px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1.5rem;flex-wrap:wrap;
+}
+.filter-group{display:flex;gap:.6rem;flex-wrap:wrap;}
+.filter-btn{
+  padding:.45rem 1.2rem;border-radius:100px;
+  font-size:.75rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--border);color:var(--w60);
+  cursor:pointer;transition:all .2s;
+}
+.filter-btn:hover,.filter-btn.active{
+  background:var(--blue-subtle);border-color:var(--border-b);color:var(--blue-b);
+}
+.filter-count{font-size:.75rem;color:var(--w30);letter-spacing:.05em;}
+
+/* TEAM GRID */
+.team-section{
+  padding:0 4rem 6rem;
+  max-width:1300px;margin:0 auto;
+}
+.dept-block{margin-bottom:5rem;}
+.dept-label{
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:2.5rem;
+  padding-bottom:1rem;
+  border-bottom:1px solid var(--border);
+}
+.dept-label h2{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--w30);}
+.dept-label .dept-count{
+  font-size:.65rem;font-weight:600;letter-spacing:.06em;
+  background:var(--blue-subtle);border:1px solid var(--border-b);
+  color:var(--blue-b);padding:.15rem .6rem;border-radius:100px;
+}
+.dept-line{flex:1;height:1px;background:var(--border);}
+
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
+
+/* CARD */
+.member-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  position:relative;
+  cursor:pointer;
+  transition:border-color .3s,transform .3s,box-shadow .3s;
+  text-decoration:none;
+  display:block;
+  color:inherit;
+}
+.member-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(77,77,255,.08),transparent 60%);
+  opacity:0;transition:opacity .3s;z-index:1;pointer-events:none;
+}
+.member-card:hover{border-color:var(--border-b);transform:translateY(-6px);box-shadow:0 20px 60px rgba(77,77,255,.12);}
+.member-card:hover::before{opacity:1;}
+
+.member-photo-wrap{
+  position:relative;overflow:hidden;
+  height:260px;background:linear-gradient(135deg,var(--deep) 0%,#0a0a18 100%);
+}
+.member-photo-wrap img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+  transition:transform .5s ease,filter .3s;
+  filter:grayscale(20%);
+}
+.member-card:hover .member-photo-wrap img{transform:scale(1.04);filter:grayscale(0%);}
+
+.member-avatar-placeholder{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#0d0d22,#0a0a18);
+}
+.avatar-initials{
+  width:90px;height:90px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--blue-b));
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;font-weight:500;color:#fff;
+  box-shadow:0 0 40px rgba(77,77,255,.4);
+}
+
+.member-dept-badge{
+  position:absolute;top:1rem;left:1rem;z-index:2;
+  padding:.25rem .75rem;border-radius:100px;
+  font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  background:rgba(5,5,10,.7);backdrop-filter:blur(12px);
+  border:1px solid var(--border-b);color:var(--blue-b);
+}
+.member-arrow{
+  position:absolute;bottom:1rem;right:1rem;z-index:2;
+  width:34px;height:34px;border-radius:50%;
+  background:rgba(5,5,10,.7);backdrop-filter:blur(12px);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .3s,border-color .3s,transform .3s;
+}
+.member-card:hover .member-arrow{background:var(--blue);border-color:var(--blue);transform:translate(2px,-2px);}
+.member-arrow svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2;}
+
+.member-body{padding:1.5rem;}
+.member-name{font-size:1.05rem;font-weight:600;letter-spacing:-.01em;margin-bottom:.25rem;}
+.member-title{font-size:.8rem;color:var(--blue-b);font-weight:500;letter-spacing:.04em;margin-bottom:.8rem;}
+.member-bio{font-size:.78rem;line-height:1.65;color:var(--w60);margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+
+.member-skills{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem;}
+.skill-tag{
+  padding:.18rem .6rem;border-radius:4px;
+  font-size:.62rem;font-weight:500;letter-spacing:.04em;
+  background:var(--w05);border:1px solid var(--border);color:var(--w60);
+}
+
+.member-socials{display:flex;gap:.6rem;align-items:center;}
+.member-social{
+  width:28px;height:28px;border-radius:6px;
+  background:var(--w05);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,border-color .2s;
+}
+.member-social:hover{background:var(--blue-subtle);border-color:var(--border-b);}
+.member-social svg{width:13px;height:13px;stroke:var(--w60);fill:none;stroke-width:1.8;transition:stroke .2s;}
+.member-social:hover svg{stroke:var(--blue-b);}
+.member-exp{font-size:.68rem;color:var(--w30);letter-spacing:.05em;margin-left:auto;align-self:center;}
+
+/* CULTURE STRIP */
+.culture-section{
+  background:var(--deep);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:5rem 4rem;
+  margin:0 0 6rem;
+}
+.culture-inner{max-width:1300px;margin:0 auto;}
+.culture-head{text-align:center;margin-bottom:4rem;}
+.culture-head h2{font-size:clamp(2rem,4vw,3rem);font-weight:500;letter-spacing:-.02em;margin-bottom:.8rem;}
+.culture-head h2 .grad{color:var(--blue-b);}
+.culture-head p{font-size:.9rem;color:var(--w60);max-width:480px;margin:0 auto;}
+.culture-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+.culture-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:2rem;text-align:center;
+  transition:border-color .3s,transform .3s;
+  position:relative;overflow:hidden;
+}
+.culture-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(77,77,255,.1),transparent 70%);opacity:0;transition:opacity .3s;}
+.culture-card:hover{border-color:var(--border-b);transform:translateY(-4px);}
+.culture-card:hover::before{opacity:1;}
+.culture-icon{width:52px;height:52px;border-radius:14px;background:var(--blue-subtle);border:1px solid var(--border-b);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;color:rgba(80,120,255,1);}
+.culture-icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.5;}
+.culture-card h3{font-size:.9rem;font-weight:700;margin-bottom:.5rem;}
+.culture-card p{font-size:.78rem;color:var(--w60);line-height:1.6;}
+
+/* JOIN CTA */
+.join-section{
+  max-width:1300px;margin:0 auto;
+  padding:0 4rem 8rem;
+}
+.join-card{
+  background:var(--surface);
+  border:1px solid var(--border-b);
+  border-radius:24px;padding:5rem 4rem;
+  text-align:center;position:relative;overflow:hidden;
+}
+.join-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% -20%,rgba(77,77,255,.18),transparent 70%);pointer-events:none;}
+.join-card::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(77,77,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(77,77,255,.04) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 80% 100% at 50% 50%,black,transparent);pointer-events:none;}
+.join-card h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:500;letter-spacing:-.02em;margin-bottom:1rem;position:relative;z-index:2;}
+.join-card h2 .grad{color:var(--blue-b);}
+.join-card p{font-size:.95rem;color:var(--w60);max-width:500px;margin:0 auto 2.5rem;line-height:1.75;position:relative;z-index:2;}
+.join-btns{display:flex;gap:1rem;justify-content:center;position:relative;z-index:2;}
+
+@media(max-width:1024px){
+  .team-hero-inner{padding:9rem 2rem 4rem;}
+  .filter-section{padding:2rem 2rem;}
+  .team-section{padding:0 2rem 5rem;}
+  .culture-section{padding:4rem 2rem;}
+  .culture-grid{grid-template-columns:repeat(2,1fr);}
+  .join-section{padding:0 2rem 5rem;}
+  .join-card{padding:3rem 2rem;}
+  .hero-stats-row{gap:2rem;}
+}
+@media(max-width:600px){
+  .team-hero-inner h1{font-size:2.4rem;}
+  .hero-stats-row{flex-direction:column;gap:1.5rem;}
+  .hstat-div{width:40px;height:1px;}
+  .culture-grid{grid-template-columns:1fr;}
+  .join-btns{flex-direction:column;align-items:center;}
+  .filter-section{flex-direction:column;align-items:flex-start;}
+}
+
+/* ===== Responsive Scaffold (Manual Overrides) ===== */
+
+@media (max-width: 479px) {
+  .team-hero {}
+  .hero-bg-grid {}
+  .hero-orb {}
+  .hero-orb-2 {}
+  .team-hero-inner {}
+  .breadcrumb {}
+  .breadcrumb a {}
+  .breadcrumb a:hover {}
+  .breadcrumb-sep {}
+  .breadcrumb span {}
+  .hero-eyebrow {}
+  .hero-eyebrow .dot-live {}
+  .team-hero-inner h1 {}
+  .team-hero-inner h1 .grad {}
+  .team-hero-inner .hero-sub {}
+  .hero-stats-row {}
+  .hstat {}
+  .hstat-num {}
+  .hstat-num .plus {}
+  .hstat-lbl {}
+  .hstat-div {}
+  .hero-wave {}
+  .filter-section {}
+  .filter-group {}
+  .filter-btn {}
+  .filter-btn:hover {}
+  .filter-btn.active {}
+  .filter-count {}
+  .team-section {}
+  .dept-block {}
+  .dept-label {}
+  .dept-label h2 {}
+  .dept-label .dept-count {}
+  .dept-line {}
+  .team-grid {}
+  .member-card {}
+  .member-card::before {}
+  .member-card:hover {}
+  .member-card:hover::before {}
+  .member-photo-wrap {}
+  .member-photo-wrap img {}
+  .member-card:hover .member-photo-wrap img {}
+  .member-avatar-placeholder {}
+  .avatar-initials {}
+  .member-dept-badge {}
+  .member-arrow {}
+  .member-card:hover .member-arrow {}
+  .member-arrow svg {}
+  .member-body {}
+  .member-name {}
+  .member-title {}
+  .member-bio {}
+  .member-skills {}
+  .skill-tag {}
+  .member-socials {}
+  .member-social {}
+  .member-social:hover {}
+  .member-social svg {}
+  .member-social:hover svg {}
+  .member-exp {}
+  .culture-section {}
+  .culture-inner {}
+  .culture-head {}
+  .culture-head h2 {}
+  .culture-head h2 .grad {}
+  .culture-head p {}
+  .culture-grid {}
+  .culture-card {}
+  .culture-card::before {}
+  .culture-card:hover {}
+  .culture-card:hover::before {}
+  .culture-icon {}
+  .culture-icon svg {}
+  .culture-card h3 {}
+  .culture-card p {}
+  .join-section {}
+  .join-card {}
+  .join-card::before {}
+  .join-card::after {}
+  .join-card h2 {}
+  .join-card h2 .grad {}
+  .join-card p {}
+  .join-btns {}
+}
+
+@media (min-width: 480px and max-width: 639px) {
+  .team-hero {}
+  .hero-bg-grid {}
+  .hero-orb {}
+  .hero-orb-2 {}
+  .team-hero-inner {}
+  .breadcrumb {}
+  .breadcrumb a {}
+  .breadcrumb a:hover {}
+  .breadcrumb-sep {}
+  .breadcrumb span {}
+  .hero-eyebrow {}
+  .hero-eyebrow .dot-live {}
+  .team-hero-inner h1 {}
+  .team-hero-inner h1 .grad {}
+  .team-hero-inner .hero-sub {}
+  .hero-stats-row {}
+  .hstat {}
+  .hstat-num {}
+  .hstat-num .plus {}
+  .hstat-lbl {}
+  .hstat-div {}
+  .hero-wave {}
+  .filter-section {}
+  .filter-group {}
+  .filter-btn {}
+  .filter-btn:hover {}
+  .filter-btn.active {}
+  .filter-count {}
+  .team-section {}
+  .dept-block {}
+  .dept-label {}
+  .dept-label h2 {}
+  .dept-label .dept-count {}
+  .dept-line {}
+  .team-grid {}
+  .member-card {}
+  .member-card::before {}
+  .member-card:hover {}
+  .member-card:hover::before {}
+  .member-photo-wrap {}
+  .member-photo-wrap img {}
+  .member-card:hover .member-photo-wrap img {}
+  .member-avatar-placeholder {}
+  .avatar-initials {}
+  .member-dept-badge {}
+  .member-arrow {}
+  .member-card:hover .member-arrow {}
+  .member-arrow svg {}
+  .member-body {}
+  .member-name {}
+  .member-title {}
+  .member-bio {}
+  .member-skills {}
+  .skill-tag {}
+  .member-socials {}
+  .member-social {}
+  .member-social:hover {}
+  .member-social svg {}
+  .member-social:hover svg {}
+  .member-exp {}
+  .culture-section {}
+  .culture-inner {}
+  .culture-head {}
+  .culture-head h2 {}
+  .culture-head h2 .grad {}
+  .culture-head p {}
+  .culture-grid {}
+  .culture-card {}
+  .culture-card::before {}
+  .culture-card:hover {}
+  .culture-card:hover::before {}
+  .culture-icon {}
+  .culture-icon svg {}
+  .culture-card h3 {}
+  .culture-card p {}
+  .join-section {}
+  .join-card {}
+  .join-card::before {}
+  .join-card::after {}
+  .join-card h2 {}
+  .join-card h2 .grad {}
+  .join-card p {}
+  .join-btns {}
+}
+
+@media (min-width: 640px and max-width: 767px) {
+  .team-hero {}
+  .hero-bg-grid {}
+  .hero-orb {}
+  .hero-orb-2 {}
+  .team-hero-inner {}
+  .breadcrumb {}
+  .breadcrumb a {}
+  .breadcrumb a:hover {}
+  .breadcrumb-sep {}
+  .breadcrumb span {}
+  .hero-eyebrow {}
+  .hero-eyebrow .dot-live {}
+  .team-hero-inner h1 {}
+  .team-hero-inner h1 .grad {}
+  .team-hero-inner .hero-sub {}
+  .hero-stats-row {}
+  .hstat {}
+  .hstat-num {}
+  .hstat-num .plus {}
+  .hstat-lbl {}
+  .hstat-div {}
+  .hero-wave {}
+  .filter-section {}
+  .filter-group {}
+  .filter-btn {}
+  .filter-btn:hover {}
+  .filter-btn.active {}
+  .filter-count {}
+  .team-section {}
+  .dept-block {}
+  .dept-label {}
+  .dept-label h2 {}
+  .dept-label .dept-count {}
+  .dept-line {}
+  .team-grid {}
+  .member-card {}
+  .member-card::before {}
+  .member-card:hover {}
+  .member-card:hover::before {}
+  .member-photo-wrap {}
+  .member-photo-wrap img {}
+  .member-card:hover .member-photo-wrap img {}
+  .member-avatar-placeholder {}
+  .avatar-initials {}
+  .member-dept-badge {}
+  .member-arrow {}
+  .member-card:hover .member-arrow {}
+  .member-arrow svg {}
+  .member-body {}
+  .member-name {}
+  .member-title {}
+  .member-bio {}
+  .member-skills {}
+  .skill-tag {}
+  .member-socials {}
+  .member-social {}
+  .member-social:hover {}
+  .member-social svg {}
+  .member-social:hover svg {}
+  .member-exp {}
+  .culture-section {}
+  .culture-inner {}
+  .culture-head {}
+  .culture-head h2 {}
+  .culture-head h2 .grad {}
+  .culture-head p {}
+  .culture-grid {}
+  .culture-card {}
+  .culture-card::before {}
+  .culture-card:hover {}
+  .culture-card:hover::before {}
+  .culture-icon {}
+  .culture-icon svg {}
+  .culture-card h3 {}
+  .culture-card p {}
+  .join-section {}
+  .join-card {}
+  .join-card::before {}
+  .join-card::after {}
+  .join-card h2 {}
+  .join-card h2 .grad {}
+  .join-card p {}
+  .join-btns {}
+}
+
+@media (min-width: 768px and max-width: 1023px) {
+  .team-hero {}
+  .hero-bg-grid {}
+  .hero-orb {}
+  .hero-orb-2 {}
+  .team-hero-inner {}
+  .breadcrumb {}
+  .breadcrumb a {}
+  .breadcrumb a:hover {}
+  .breadcrumb-sep {}
+  .breadcrumb span {}
+  .hero-eyebrow {}
+  .hero-eyebrow .dot-live {}
+  .team-hero-inner h1 {}
+  .team-hero-inner h1 .grad {}
+  .team-hero-inner .hero-sub {}
+  .hero-stats-row {}
+  .hstat {}
+  .hstat-num {}
+  .hstat-num .plus {}
+  .hstat-lbl {}
+  .hstat-div {}
+  .hero-wave {}
+  .filter-section {}
+  .filter-group {}
+  .filter-btn {}
+  .filter-btn:hover {}
+  .filter-btn.active {}
+  .filter-count {}
+  .team-section {}
+  .dept-block {}
+  .dept-label {}
+  .dept-label h2 {}
+  .dept-label .dept-count {}
+  .dept-line {}
+  .team-grid {}
+  .member-card {}
+  .member-card::before {}
+  .member-card:hover {}
+  .member-card:hover::before {}
+  .member-photo-wrap {}
+  .member-photo-wrap img {}
+  .member-card:hover .member-photo-wrap img {}
+  .member-avatar-placeholder {}
+  .avatar-initials {}
+  .member-dept-badge {}
+  .member-arrow {}
+  .member-card:hover .member-arrow {}
+  .member-arrow svg {}
+  .member-body {}
+  .member-name {}
+  .member-title {}
+  .member-bio {}
+  .member-skills {}
+  .skill-tag {}
+  .member-socials {}
+  .member-social {}
+  .member-social:hover {}
+  .member-social svg {}
+  .member-social:hover svg {}
+  .member-exp {}
+  .culture-section {}
+  .culture-inner {}
+  .culture-head {}
+  .culture-head h2 {}
+  .culture-head h2 .grad {}
+  .culture-head p {}
+  .culture-grid {}
+  .culture-card {}
+  .culture-card::before {}
+  .culture-card:hover {}
+  .culture-card:hover::before {}
+  .culture-icon {}
+  .culture-icon svg {}
+  .culture-card h3 {}
+  .culture-card p {}
+  .join-section {}
+  .join-card {}
+  .join-card::before {}
+  .join-card::after {}
+  .join-card h2 {}
+  .join-card h2 .grad {}
+  .join-card p {}
+  .join-btns {}
+}
+
+@media (min-width: 1024px and max-width: 1279px) {
+  .team-hero {}
+  .hero-bg-grid {}
+  .hero-orb {}
+  .hero-orb-2 {}
+  .team-hero-inner {}
+  .breadcrumb {}
+  .breadcrumb a {}
+  .breadcrumb a:hover {}
+  .breadcrumb-sep {}
+  .breadcrumb span {}
+  .hero-eyebrow {}
+  .hero-eyebrow .dot-live {}
+  .team-hero-inner h1 {}
+  .team-hero-inner h1 .grad {}
+  .team-hero-inner .hero-sub {}
+  .hero-stats-row {}
+  .hstat {}
+  .hstat-num {}
+  .hstat-num .plus {}
+  .hstat-lbl {}
+  .hstat-div {}
+  .hero-wave {}
+  .filter-section {}
+  .filter-group {}
+  .filter-btn {}
+  .filter-btn:hover {}
+  .filter-btn.active {}
+  .filter-count {}
+  .team-section {}
+  .dept-block {}
+  .dept-label {}
+  .dept-label h2 {}
+  .dept-label .dept-count {}
+  .dept-line {}
+  .team-grid {}
+  .member-card {}
+  .member-card::before {}
+  .member-card:hover {}
+  .member-card:hover::before {}
+  .member-photo-wrap {}
+  .member-photo-wrap img {}
+  .member-card:hover .member-photo-wrap img {}
+  .member-avatar-placeholder {}
+  .avatar-initials {}
+  .member-dept-badge {}
+  .member-arrow {}
+  .member-card:hover .member-arrow {}
+  .member-arrow svg {}
+  .member-body {}
+  .member-name {}
+  .member-title {}
+  .member-bio {}
+  .member-skills {}
+  .skill-tag {}
+  .member-socials {}
+  .member-social {}
+  .member-social:hover {}
+  .member-social svg {}
+  .member-social:hover svg {}
+  .member-exp {}
+  .culture-section {}
+  .culture-inner {}
+  .culture-head {}
+  .culture-head h2 {}
+  .culture-head h2 .grad {}
+  .culture-head p {}
+  .culture-grid {}
+  .culture-card {}
+  .culture-card::before {}
+  .culture-card:hover {}
+  .culture-card:hover::before {}
+  .culture-icon {}
+  .culture-icon svg {}
+  .culture-card h3 {}
+  .culture-card p {}
+  .join-section {}
+  .join-card {}
+  .join-card::before {}
+  .join-card::after {}
+  .join-card h2 {}
+  .join-card h2 .grad {}
+  .join-card p {}
+  .join-btns {}
+}
+
+@media (min-width: 1280px) {
+  .team-hero {}
+  .hero-bg-grid {}
+  .hero-orb {}
+  .hero-orb-2 {}
+  .team-hero-inner {}
+  .breadcrumb {}
+  .breadcrumb a {}
+  .breadcrumb a:hover {}
+  .breadcrumb-sep {}
+  .breadcrumb span {}
+  .hero-eyebrow {}
+  .hero-eyebrow .dot-live {}
+  .team-hero-inner h1 {}
+  .team-hero-inner h1 .grad {}
+  .team-hero-inner .hero-sub {}
+  .hero-stats-row {}
+  .hstat {}
+  .hstat-num {}
+  .hstat-num .plus {}
+  .hstat-lbl {}
+  .hstat-div {}
+  .hero-wave {}
+  .filter-section {}
+  .filter-group {}
+  .filter-btn {}
+  .filter-btn:hover {}
+  .filter-btn.active {}
+  .filter-count {}
+  .team-section {}
+  .dept-block {}
+  .dept-label {}
+  .dept-label h2 {}
+  .dept-label .dept-count {}
+  .dept-line {}
+  .team-grid {}
+  .member-card {}
+  .member-card::before {}
+  .member-card:hover {}
+  .member-card:hover::before {}
+  .member-photo-wrap {}
+  .member-photo-wrap img {}
+  .member-card:hover .member-photo-wrap img {}
+  .member-avatar-placeholder {}
+  .avatar-initials {}
+  .member-dept-badge {}
+  .member-arrow {}
+  .member-card:hover .member-arrow {}
+  .member-arrow svg {}
+  .member-body {}
+  .member-name {}
+  .member-title {}
+  .member-bio {}
+  .member-skills {}
+  .skill-tag {}
+  .member-socials {}
+  .member-social {}
+  .member-social:hover {}
+  .member-social svg {}
+  .member-social:hover svg {}
+  .member-exp {}
+  .culture-section {}
+  .culture-inner {}
+  .culture-head {}
+  .culture-head h2 {}
+  .culture-head h2 .grad {}
+  .culture-head p {}
+  .culture-grid {}
+  .culture-card {}
+  .culture-card::before {}
+  .culture-card:hover {}
+  .culture-card:hover::before {}
+  .culture-icon {}
+  .culture-icon svg {}
+  .culture-card h3 {}
+  .culture-card p {}
+  .join-section {}
+  .join-card {}
+  .join-card::before {}
+  .join-card::after {}
+  .join-card h2 {}
+  .join-card h2 .grad {}
+  .join-card p {}
+  .join-btns {}
+}

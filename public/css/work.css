@@ -1,0 +1,647 @@
+/* ── WORK PAGE SECTIONS ── */
+.page-hero{min-height:78vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(180deg,#060610 0%,#050508 100%);}
+.hero-grid-bg{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(77,77,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(77,77,255,.05) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,black,transparent);}
+.hero-orb{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(77,77,255,.15) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-60%);pointer-events:none;z-index:1;}
+.hero-orb-2{position:absolute;width:350px;height:350px;background:radial-gradient(circle,rgba(120,80,255,.1) 0%,transparent 70%);bottom:10%;right:5%;pointer-events:none;z-index:1;animation:glowPulse 6s ease-in-out infinite;}
+.page-hero-inner{position:relative;z-index:10;max-width:1300px;margin:0 auto;width:100%;padding:8rem 4rem 5rem;text-align:center;}
+.page-hero-inner h1{font-size:clamp(2.8rem,6vw,5.2rem);font-weight:500;line-height:1.04;letter-spacing:-.03em;margin-bottom:1.4rem;animation:fadeUp .8s .25s ease both;}
+.page-hero-inner h1 .grad{color:var(--blue-b);}
+.hero-sub{font-size:1.05rem;line-height:1.85;color:var(--w60);max-width:600px;margin:0 auto 3rem;animation:fadeUp .8s .4s ease both;}
+.hero-stat-row{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;animation:fadeUp .8s .55s ease both;border-top:1px solid var(--border);margin-top:4rem;padding-top:3rem;}
+.hero-stat{text-align:center;}
+.hero-stat .num{display:block;font-size:2.8rem;font-weight:500;color:var(--blue-b);line-height:1;}
+.hero-stat .lbl{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--w60);margin-top:.4rem;}
+
+/* FILTER BAR */
+.filter-section{max-width:1300px;margin:0 auto;padding:3.5rem 4rem 0;}
+.filter-bar{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;}
+.filter-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--w60);margin-right:.6rem;}
+.filter-btn{padding:.45rem 1.2rem;border-radius:100px;font-size:.78rem;font-weight:500;background:var(--w05);border:1px solid var(--border);color:var(--w60);cursor:pointer;transition:all .2s;letter-spacing:.03em;}
+.filter-btn:hover,.filter-btn.active{background:var(--blue-subtle);border-color:var(--border-b);color:var(--white);}
+
+/* PROJECTS GRID */
+.projects-section{max-width:1300px;margin:0 auto;padding:3rem 4rem 6rem;}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+
+/* Project card */
+.proj-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .3s,transform .3s,box-shadow .3s;position:relative;}
+.proj-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(77,77,255,.07),transparent 60%);opacity:0;transition:opacity .3s;z-index:0;pointer-events:none;}
+.proj-card:hover{border-color:var(--border-b);transform:translateY(-6px);box-shadow:0 24px 64px rgba(77,77,255,.12);}
+.proj-card:hover::before{opacity:1;}
+
+/* Featured card spans 2 columns */
+.proj-card.featured{grid-column:span 2;}
+
+.proj-thumb{position:relative;overflow:hidden;height:220px;background:linear-gradient(135deg,#08080f,#0d0d20);flex-shrink:0;}
+.proj-card.featured .proj-thumb{height:280px;}
+.proj-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:.55;transition:transform .5s ease,opacity .4s ease;}
+.proj-card:hover .proj-thumb img{transform:scale(1.04);opacity:.7;}
+.proj-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(5,5,10,.9) 100%);}
+.proj-cat{position:absolute;top:1rem;left:1rem;padding:.35rem .9rem;border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(5,5,10,.7);border:1px solid var(--border-b);color:rgba(100,140,255,1);backdrop-filter:blur(8px);}
+.proj-status{position:absolute;top:1rem;right:1rem;padding:.3rem .8rem;border-radius:100px;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(8px);}
+.proj-status.live{background:rgba(0,180,90,.15);border:1px solid rgba(0,200,100,.3);color:#00cc66;}
+.proj-status.dev{background:rgba(255,180,0,.1);border:1px solid rgba(255,180,0,.25);color:#ffbb00;}
+
+.proj-body{padding:2rem;flex:1;display:flex;flex-direction:column;position:relative;z-index:1;}
+.proj-body h3{font-size:1.2rem;font-weight:700;margin-bottom:.55rem;letter-spacing:-.01em;}
+.proj-card.featured .proj-body h3{font-size:1.5rem;}
+.proj-body p{font-size:.83rem;line-height:1.8;color:var(--w60);flex:1;margin-bottom:1.4rem;}
+.proj-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.4rem;}
+.proj-tag{padding:.28rem .75rem;border-radius:100px;font-size:.65rem;font-weight:600;background:var(--w05);border:1px solid var(--border);color:var(--w60);letter-spacing:.04em;}
+.proj-footer{display:flex;align-items:center;justify-content:space-between;}
+.proj-dates{font-size:.72rem;color:var(--w30);letter-spacing:.04em;}
+.proj-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:600;color:var(--blue-b);text-decoration:none;letter-spacing:.04em;transition:gap .2s,color .2s;}
+.proj-link:hover{color:#fff;gap:.7rem;}
+.proj-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
+
+/* IMPACT STRIP */
+.impact-section{background:var(--deep);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:6rem 4rem;}
+.impact-inner{max-width:1300px;margin:0 auto;}
+.impact-head{text-align:center;margin-bottom:4rem;}
+.impact-head p{font-size:.95rem;color:var(--w60);max-width:500px;margin:.8rem auto 0;line-height:1.75;}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+.impact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;}
+.impact-card::after{content:'';position:absolute;top:-50px;left:50%;transform:translateX(-50%);width:120px;height:120px;background:radial-gradient(circle,rgba(77,77,255,.12),transparent 70%);pointer-events:none;}
+.impact-card:hover{border-color:var(--border-b);transform:translateY(-4px);}
+.impact-card .ic-num{font-size:3rem;font-weight:500;color:var(--blue-b);display:block;line-height:1;}
+.impact-card .ic-lbl{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--w60);display:block;margin-top:.5rem;}
+
+/* TESTIMONIALS */
+.testis-section{max-width:1300px;margin:0 auto;padding:6rem 4rem;}
+.testis-head{text-align:center;margin-bottom:4rem;}
+.testis-head p{font-size:.95rem;color:var(--w60);max-width:480px;margin:.8rem auto 0;line-height:1.75;}
+.testis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.testi-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2.2rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;}
+.testi-card::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;background:radial-gradient(circle,rgba(77,77,255,.08),transparent 70%);pointer-events:none;}
+.testi-card:hover{border-color:var(--border-b);transform:translateY(-4px);}
+.stars{color:var(--blue-b);font-size:1rem;letter-spacing:.1em;margin-bottom:1rem;}
+.testi-q{font-size:.88rem;line-height:1.85;color:var(--w60);margin-bottom:1.6rem;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:.9rem;}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--blue-subtle);border:1px solid var(--border-b);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:var(--blue-b);flex-shrink:0;}
+.testi-name{font-size:.88rem;font-weight:700;}
+.testi-role{font-size:.72rem;color:var(--w60);letter-spacing:.04em;}
+
+/* TECH STACK */
+.tech-section{background:var(--deep);border-top:1px solid var(--border);padding:6rem 4rem;}
+.tech-inner{max-width:1300px;margin:0 auto;}
+.tech-head{text-align:center;margin-bottom:4rem;}
+.tech-head p{color:var(--w60);max-width:480px;margin:.8rem auto 0;font-size:.9rem;line-height:1.75;}
+.tech-categories{display:flex;flex-direction:column;gap:1.2rem;}
+.tech-cat{display:flex;align-items:center;gap:2rem;padding:1.4rem 2rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);transition:border-color .3s;}
+.tech-cat:hover{border-color:var(--border-b);}
+.tech-cat-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-b);min-width:130px;flex-shrink:0;}
+.tech-pills{display:flex;flex-wrap:wrap;gap:.5rem;}
+.tech-pill{padding:.3rem .85rem;border-radius:100px;font-size:.72rem;background:var(--w05);border:1px solid var(--border);color:var(--w60);}
+
+/* CTA */
+.cta-section{position:relative;padding:8rem 4rem;text-align:center;overflow:hidden;}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(77,77,255,.18) 0%,transparent 70%);pointer-events:none;}
+.cta-inner{position:relative;z-index:2;max-width:640px;margin:0 auto;}
+.cta-inner h2{font-size:clamp(2rem,4vw,3.4rem);font-weight:500;line-height:1.08;letter-spacing:-.03em;margin-bottom:1.2rem;}
+.cta-inner p{font-size:1rem;color:var(--w60);line-height:1.8;margin-bottom:2.5rem;}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+@media(max-width:1024px){
+  .filter-section{padding:3.5rem 1.5rem 0;}
+  .projects-section{padding:3rem 1.5rem 6rem;}
+  .projects-grid{grid-template-columns:repeat(2,1fr);}
+  .impact-section{padding:5rem 2rem;}
+  .impact-grid{grid-template-columns:repeat(2,1fr);}
+  .testis-section{padding:5rem 2rem;}
+  .testis-grid{grid-template-columns:1fr 1fr;}
+  .tech-section{padding:5rem 2rem;}
+  .tech-cat{flex-direction:column;align-items:flex-start;gap:1rem;padding:1.5rem;}
+  .cta-section{padding:5rem 2rem;}
+}
+@media(max-width:768px){
+  .projects-grid{grid-template-columns:1fr;}
+  .proj-card.featured{grid-column:auto;}
+  .hero-stat-row{gap:2rem;}
+  .impact-grid{grid-template-columns:1fr;}
+  .testis-grid{grid-template-columns:1fr;}
+  .cta-btns{flex-direction:column;align-items:center;}
+}
+
+/* ===== Responsive Scaffold (Manual Overrides) ===== */
+
+@media (max-width: 479px) {
+  .page-hero {}
+  .hero-grid-bg {}
+  .hero-orb {}
+  .hero-orb-2 {}
+  .page-hero-inner {}
+  .page-hero-inner h1 {}
+  .page-hero-inner h1 .grad {}
+  .hero-sub {}
+  .hero-stat-row {}
+  .hero-stat {}
+  .hero-stat .num {}
+  .hero-stat .lbl {}
+  .filter-section {}
+  .filter-bar {}
+  .filter-label {}
+  .filter-btn {}
+  .filter-btn:hover {}
+  .filter-btn.active {}
+  .projects-section {}
+  .projects-grid {}
+  .proj-card {}
+  .proj-card::before {}
+  .proj-card:hover {}
+  .proj-card:hover::before {}
+  .proj-card.featured {}
+  .proj-thumb {}
+  .proj-card.featured .proj-thumb {}
+  .proj-thumb img {}
+  .proj-card:hover .proj-thumb img {}
+  .proj-thumb-overlay {}
+  .proj-cat {}
+  .proj-status {}
+  .proj-status.live {}
+  .proj-status.dev {}
+  .proj-body {}
+  .proj-body h3 {}
+  .proj-card.featured .proj-body h3 {}
+  .proj-body p {}
+  .proj-tags {}
+  .proj-tag {}
+  .proj-footer {}
+  .proj-dates {}
+  .proj-link {}
+  .proj-link:hover {}
+  .proj-link svg {}
+  .impact-section {}
+  .impact-inner {}
+  .impact-head {}
+  .impact-head p {}
+  .impact-grid {}
+  .impact-card {}
+  .impact-card::after {}
+  .impact-card:hover {}
+  .impact-card .ic-num {}
+  .impact-card .ic-lbl {}
+  .testis-section {}
+  .testis-head {}
+  .testis-head p {}
+  .testis-grid {}
+  .testi-card {}
+  .testi-card::before {}
+  .testi-card:hover {}
+  .stars {}
+  .testi-q {}
+  .testi-author {}
+  .testi-avatar {}
+  .testi-name {}
+  .testi-role {}
+  .tech-section {}
+  .tech-inner {}
+  .tech-head {}
+  .tech-head p {}
+  .tech-categories {}
+  .tech-cat {}
+  .tech-cat:hover {}
+  .tech-cat-label {}
+  .tech-pills {}
+  .tech-pill {}
+  .cta-section {}
+  .cta-glow {}
+  .cta-inner {}
+  .cta-inner h2 {}
+  .cta-inner p {}
+  .cta-btns {}
+}
+
+@media (min-width: 480px and max-width: 639px) {
+  .page-hero {}
+  .hero-grid-bg {}
+  .hero-orb {}
+  .hero-orb-2 {}
+  .page-hero-inner {}
+  .page-hero-inner h1 {}
+  .page-hero-inner h1 .grad {}
+  .hero-sub {}
+  .hero-stat-row {}
+  .hero-stat {}
+  .hero-stat .num {}
+  .hero-stat .lbl {}
+  .filter-section {}
+  .filter-bar {}
+  .filter-label {}
+  .filter-btn {}
+  .filter-btn:hover {}
+  .filter-btn.active {}
+  .projects-section {}
+  .projects-grid {}
+  .proj-card {}
+  .proj-card::before {}
+  .proj-card:hover {}
+  .proj-card:hover::before {}
+  .proj-card.featured {}
+  .proj-thumb {}
+  .proj-card.featured .proj-thumb {}
+  .proj-thumb img {}
+  .proj-card:hover .proj-thumb img {}
+  .proj-thumb-overlay {}
+  .proj-cat {}
+  .proj-status {}
+  .proj-status.live {}
+  .proj-status.dev {}
+  .proj-body {}
+  .proj-body h3 {}
+  .proj-card.featured .proj-body h3 {}
+  .proj-body p {}
+  .proj-tags {}
+  .proj-tag {}
+  .proj-footer {}
+  .proj-dates {}
+  .proj-link {}
+  .proj-link:hover {}
+  .proj-link svg {}
+  .impact-section {}
+  .impact-inner {}
+  .impact-head {}
+  .impact-head p {}
+  .impact-grid {}
+  .impact-card {}
+  .impact-card::after {}
+  .impact-card:hover {}
+  .impact-card .ic-num {}
+  .impact-card .ic-lbl {}
+  .testis-section {}
+  .testis-head {}
+  .testis-head p {}
+  .testis-grid {}
+  .testi-card {}
+  .testi-card::before {}
+  .testi-card:hover {}
+  .stars {}
+  .testi-q {}
+  .testi-author {}
+  .testi-avatar {}
+  .testi-name {}
+  .testi-role {}
+  .tech-section {}
+  .tech-inner {}
+  .tech-head {}
+  .tech-head p {}
+  .tech-categories {}
+  .tech-cat {}
+  .tech-cat:hover {}
+  .tech-cat-label {}
+  .tech-pills {}
+  .tech-pill {}
+  .cta-section {}
+  .cta-glow {}
+  .cta-inner {}
+  .cta-inner h2 {}
+  .cta-inner p {}
+  .cta-btns {}
+}
+
+@media (min-width: 640px and max-width: 767px) {
+  .page-hero {}
+  .hero-grid-bg {}
+  .hero-orb {}
+  .hero-orb-2 {}
+  .page-hero-inner {}
+  .page-hero-inner h1 {}
+  .page-hero-inner h1 .grad {}
+  .hero-sub {}
+  .hero-stat-row {}
+  .hero-stat {}
+  .hero-stat .num {}
+  .hero-stat .lbl {}
+  .filter-section {}
+  .filter-bar {}
+  .filter-label {}
+  .filter-btn {}
+  .filter-btn:hover {}
+  .filter-btn.active {}
+  .projects-section {}
+  .projects-grid {}
+  .proj-card {}
+  .proj-card::before {}
+  .proj-card:hover {}
+  .proj-card:hover::before {}
+  .proj-card.featured {}
+  .proj-thumb {}
+  .proj-card.featured .proj-thumb {}
+  .proj-thumb img {}
+  .proj-card:hover .proj-thumb img {}
+  .proj-thumb-overlay {}
+  .proj-cat {}
+  .proj-status {}
+  .proj-status.live {}
+  .proj-status.dev {}
+  .proj-body {}
+  .proj-body h3 {}
+  .proj-card.featured .proj-body h3 {}
+  .proj-body p {}
+  .proj-tags {}
+  .proj-tag {}
+  .proj-footer {}
+  .proj-dates {}
+  .proj-link {}
+  .proj-link:hover {}
+  .proj-link svg {}
+  .impact-section {}
+  .impact-inner {}
+  .impact-head {}
+  .impact-head p {}
+  .impact-grid {}
+  .impact-card {}
+  .impact-card::after {}
+  .impact-card:hover {}
+  .impact-card .ic-num {}
+  .impact-card .ic-lbl {}
+  .testis-section {}
+  .testis-head {}
+  .testis-head p {}
+  .testis-grid {}
+  .testi-card {}
+  .testi-card::before {}
+  .testi-card:hover {}
+  .stars {}
+  .testi-q {}
+  .testi-author {}
+  .testi-avatar {}
+  .testi-name {}
+  .testi-role {}
+  .tech-section {}
+  .tech-inner {}
+  .tech-head {}
+  .tech-head p {}
+  .tech-categories {}
+  .tech-cat {}
+  .tech-cat:hover {}
+  .tech-cat-label {}
+  .tech-pills {}
+  .tech-pill {}
+  .cta-section {}
+  .cta-glow {}
+  .cta-inner {}
+  .cta-inner h2 {}
+  .cta-inner p {}
+  .cta-btns {}
+}
+
+@media (min-width: 768px and max-width: 1023px) {
+  .page-hero {}
+  .hero-grid-bg {}
+  .hero-orb {}
+  .hero-orb-2 {}
+  .page-hero-inner {}
+  .page-hero-inner h1 {}
+  .page-hero-inner h1 .grad {}
+  .hero-sub {}
+  .hero-stat-row {}
+  .hero-stat {}
+  .hero-stat .num {}
+  .hero-stat .lbl {}
+  .filter-section {}
+  .filter-bar {}
+  .filter-label {}
+  .filter-btn {}
+  .filter-btn:hover {}
+  .filter-btn.active {}
+  .projects-section {}
+  .projects-grid {}
+  .proj-card {}
+  .proj-card::before {}
+  .proj-card:hover {}
+  .proj-card:hover::before {}
+  .proj-card.featured {}
+  .proj-thumb {}
+  .proj-card.featured .proj-thumb {}
+  .proj-thumb img {}
+  .proj-card:hover .proj-thumb img {}
+  .proj-thumb-overlay {}
+  .proj-cat {}
+  .proj-status {}
+  .proj-status.live {}
+  .proj-status.dev {}
+  .proj-body {}
+  .proj-body h3 {}
+  .proj-card.featured .proj-body h3 {}
+  .proj-body p {}
+  .proj-tags {}
+  .proj-tag {}
+  .proj-footer {}
+  .proj-dates {}
+  .proj-link {}
+  .proj-link:hover {}
+  .proj-link svg {}
+  .impact-section {}
+  .impact-inner {}
+  .impact-head {}
+  .impact-head p {}
+  .impact-grid {}
+  .impact-card {}
+  .impact-card::after {}
+  .impact-card:hover {}
+  .impact-card .ic-num {}
+  .impact-card .ic-lbl {}
+  .testis-section {}
+  .testis-head {}
+  .testis-head p {}
+  .testis-grid {}
+  .testi-card {}
+  .testi-card::before {}
+  .testi-card:hover {}
+  .stars {}
+  .testi-q {}
+  .testi-author {}
+  .testi-avatar {}
+  .testi-name {}
+  .testi-role {}
+  .tech-section {}
+  .tech-inner {}
+  .tech-head {}
+  .tech-head p {}
+  .tech-categories {}
+  .tech-cat {}
+  .tech-cat:hover {}
+  .tech-cat-label {}
+  .tech-pills {}
+  .tech-pill {}
+  .cta-section {}
+  .cta-glow {}
+  .cta-inner {}
+  .cta-inner h2 {}
+  .cta-inner p {}
+  .cta-btns {}
+}
+
+@media (min-width: 1024px and max-width: 1279px) {
+  .page-hero {}
+  .hero-grid-bg {}
+  .hero-orb {}
+  .hero-orb-2 {}
+  .page-hero-inner {}
+  .page-hero-inner h1 {}
+  .page-hero-inner h1 .grad {}
+  .hero-sub {}
+  .hero-stat-row {}
+  .hero-stat {}
+  .hero-stat .num {}
+  .hero-stat .lbl {}
+  .filter-section {}
+  .filter-bar {}
+  .filter-label {}
+  .filter-btn {}
+  .filter-btn:hover {}
+  .filter-btn.active {}
+  .projects-section {}
+  .projects-grid {}
+  .proj-card {}
+  .proj-card::before {}
+  .proj-card:hover {}
+  .proj-card:hover::before {}
+  .proj-card.featured {}
+  .proj-thumb {}
+  .proj-card.featured .proj-thumb {}
+  .proj-thumb img {}
+  .proj-card:hover .proj-thumb img {}
+  .proj-thumb-overlay {}
+  .proj-cat {}
+  .proj-status {}
+  .proj-status.live {}
+  .proj-status.dev {}
+  .proj-body {}
+  .proj-body h3 {}
+  .proj-card.featured .proj-body h3 {}
+  .proj-body p {}
+  .proj-tags {}
+  .proj-tag {}
+  .proj-footer {}
+  .proj-dates {}
+  .proj-link {}
+  .proj-link:hover {}
+  .proj-link svg {}
+  .impact-section {}
+  .impact-inner {}
+  .impact-head {}
+  .impact-head p {}
+  .impact-grid {}
+  .impact-card {}
+  .impact-card::after {}
+  .impact-card:hover {}
+  .impact-card .ic-num {}
+  .impact-card .ic-lbl {}
+  .testis-section {}
+  .testis-head {}
+  .testis-head p {}
+  .testis-grid {}
+  .testi-card {}
+  .testi-card::before {}
+  .testi-card:hover {}
+  .stars {}
+  .testi-q {}
+  .testi-author {}
+  .testi-avatar {}
+  .testi-name {}
+  .testi-role {}
+  .tech-section {}
+  .tech-inner {}
+  .tech-head {}
+  .tech-head p {}
+  .tech-categories {}
+  .tech-cat {}
+  .tech-cat:hover {}
+  .tech-cat-label {}
+  .tech-pills {}
+  .tech-pill {}
+  .cta-section {}
+  .cta-glow {}
+  .cta-inner {}
+  .cta-inner h2 {}
+  .cta-inner p {}
+  .cta-btns {}
+}
+
+@media (min-width: 1280px) {
+  .page-hero {}
+  .hero-grid-bg {}
+  .hero-orb {}
+  .hero-orb-2 {}
+  .page-hero-inner {}
+  .page-hero-inner h1 {}
+  .page-hero-inner h1 .grad {}
+  .hero-sub {}
+  .hero-stat-row {}
+  .hero-stat {}
+  .hero-stat .num {}
+  .hero-stat .lbl {}
+  .filter-section {}
+  .filter-bar {}
+  .filter-label {}
+  .filter-btn {}
+  .filter-btn:hover {}
+  .filter-btn.active {}
+  .projects-section {}
+  .projects-grid {}
+  .proj-card {}
+  .proj-card::before {}
+  .proj-card:hover {}
+  .proj-card:hover::before {}
+  .proj-card.featured {}
+  .proj-thumb {}
+  .proj-card.featured .proj-thumb {}
+  .proj-thumb img {}
+  .proj-card:hover .proj-thumb img {}
+  .proj-thumb-overlay {}
+  .proj-cat {}
+  .proj-status {}
+  .proj-status.live {}
+  .proj-status.dev {}
+  .proj-body {}
+  .proj-body h3 {}
+  .proj-card.featured .proj-body h3 {}
+  .proj-body p {}
+  .proj-tags {}
+  .proj-tag {}
+  .proj-footer {}
+  .proj-dates {}
+  .proj-link {}
+  .proj-link:hover {}
+  .proj-link svg {}
+  .impact-section {}
+  .impact-inner {}
+  .impact-head {}
+  .impact-head p {}
+  .impact-grid {}
+  .impact-card {}
+  .impact-card::after {}
+  .impact-card:hover {}
+  .impact-card .ic-num {}
+  .impact-card .ic-lbl {}
+  .testis-section {}
+  .testis-head {}
+  .testis-head p {}
+  .testis-grid {}
+  .testi-card {}
+  .testi-card::before {}
+  .testi-card:hover {}
+  .stars {}
+  .testi-q {}
+  .testi-author {}
+  .testi-avatar {}
+  .testi-name {}
+  .testi-role {}
+  .tech-section {}
+  .tech-inner {}
+  .tech-head {}
+  .tech-head p {}
+  .tech-categories {}
+  .tech-cat {}
+  .tech-cat:hover {}
+  .tech-cat-label {}
+  .tech-pills {}
+  .tech-pill {}
+  .cta-section {}
+  .cta-glow {}
+  .cta-inner {}
+  .cta-inner h2 {}
+  .cta-inner p {}
+  .cta-btns {}
+}

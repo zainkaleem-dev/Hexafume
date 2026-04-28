@@ -1,0 +1,655 @@
+/* ── PROCESS PAGE SECTIONS ── */
+.page-hero{min-height:72vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(180deg,#060610 0%,#050508 100%);}
+.hero-grid-bg{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(77,77,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(77,77,255,.05) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,black,transparent);}
+.hero-orb{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(77,77,255,.15) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-60%);pointer-events:none;z-index:1;}
+.page-hero-inner{position:relative;z-index:10;max-width:1300px;margin:0 auto;width:100%;padding:8rem 4rem 5rem;text-align:center;}
+.breadcrumb{display:inline-flex;align-items:center;gap:.6rem;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--w60);margin-bottom:2rem;animation:fadeUp .6s .1s ease both;}
+.breadcrumb a{color:var(--w60);text-decoration:none;transition:color .2s;}
+.breadcrumb a:hover{color:var(--blue-b);}
+.breadcrumb-sep{color:var(--w30);}
+.breadcrumb span{color:var(--blue-b);}
+.page-hero-inner h1{font-size:clamp(2.8rem,6vw,5rem);font-weight:500;line-height:1.05;letter-spacing:-.03em;margin-bottom:1.4rem;animation:fadeUp .8s .25s ease both;}
+.page-hero-inner h1 .grad{color:var(--blue-b);}
+.hero-sub{font-size:1.05rem;line-height:1.85;color:var(--w60);max-width:580px;margin:0 auto 3rem;animation:fadeUp .8s .4s ease both;}
+.hero-quick-stats{display:flex;justify-content:center;gap:4rem;animation:fadeUp .8s .55s ease both;}
+.hqs{text-align:center;}
+.hqs-num{font-size:2rem;font-weight:500;color:var(--blue-b);}
+.hqs-lbl{font-size:.68rem;color:var(--w60);letter-spacing:.08em;text-transform:uppercase;margin-top:.2rem;}
+.hqs-div{width:1px;background:var(--border);align-self:stretch;}
+
+/* PROCESS ZIGZAG */
+.process-section{max-width:1400px;margin:0 auto;padding:7rem 4rem;}
+.process-head{text-align:center;margin-bottom:6rem;}
+.process-head p{color:var(--w60);max-width:500px;margin:.8rem auto 0;font-size:.9rem;line-height:1.75;}
+
+.process-list{position:relative;display:flex;flex-direction:column;gap:4rem;}
+.process-line{position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,var(--blue) 15%,var(--blue) 85%,transparent);transform:translateX(-50%);z-index:1;animation:linePulse 3s ease-in-out infinite;}
+.process-step{display:flex;align-items:center;justify-content:space-between;width:100%;position:relative;z-index:2;}
+.process-step:nth-child(even){flex-direction:row-reverse;}
+.step-content{width:42%;padding:2.5rem;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:20px;backdrop-filter:blur(10px);transition:all .4s cubic-bezier(.16,1,.3,1);}
+.process-step:nth-child(odd) .step-content{text-align:right;margin-right:8%;}
+.process-step:nth-child(even) .step-content{text-align:left;margin-left:8%;}
+.process-step:hover .step-content{border-color:var(--blue-b);transform:translateY(-8px);background:rgba(77,77,255,.05);box-shadow:0 10px 40px -10px rgba(77,77,255,.2);}
+.step-content h3{font-size:1.5rem;margin-bottom:1rem;color:var(--white);font-weight:600;}
+.step-content p{font-size:1rem;color:var(--w60);line-height:1.8;}
+.step-deliverables{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:.4rem;}
+.process-step:nth-child(odd) .step-deliverables{justify-content:flex-end;}
+.step-d-tag{padding:.2rem .65rem;border-radius:100px;font-size:.62rem;font-weight:500;background:var(--blue-subtle);border:1px solid var(--border-b);color:var(--blue-b);}
+.step-num{width:64px;height:64px;min-width:64px;background:var(--surface);border:2px solid var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2rem;color:var(--white);position:absolute;left:50%;transform:translateX(-50%);box-shadow:0 0 20px var(--blue-glow);z-index:5;transition:all .4s cubic-bezier(.16,1,.3,1);}
+.process-step:hover .step-num{background:var(--blue);box-shadow:0 0 40px var(--blue);transform:translateX(-50%) scale(1.1);}
+.step-visual{width:42%;display:flex;justify-content:center;align-items:center;transition:all .6s cubic-bezier(.16,1,.3,1);}
+.process-step:hover .step-visual{transform:scale(1.08) rotate(2deg);}
+.step-visual svg{width:140px;height:140px;filter:drop-shadow(0 0 20px var(--blue-glow));stroke:var(--blue-b);fill:none;stroke-width:1;transition:all .6s ease;}
+.process-step:hover .step-visual svg{stroke:var(--white);filter:drop-shadow(0 0 35px var(--blue));}
+.step-duration{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;color:var(--blue-b);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem;}
+.step-duration::before{content:'';display:block;width:5px;height:5px;background:var(--blue-b);border-radius:50%;}
+
+/* PHASES EXPLAINER */
+.phases-section{background:var(--deep);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:6rem 4rem;}
+.phases-inner{max-width:1300px;margin:0 auto;}
+.phases-head{text-align:center;margin-bottom:4rem;}
+.phases-head p{color:var(--w60);max-width:480px;margin:.6rem auto 0;font-size:.9rem;line-height:1.75;}
+.phases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.phase-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;transition:border-color .3s,transform .3s;position:relative;overflow:hidden;}
+.phase-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(77,77,255,.07),transparent 60%);opacity:0;transition:opacity .3s;}
+.phase-card:hover{border-color:var(--border-b);transform:translateY(-4px);}
+.phase-card:hover::before{opacity:1;}
+.phase-card-icon{width:46px;height:46px;border-radius:12px;background:var(--blue-subtle);border:1px solid var(--border-b);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;color:rgba(80,120,255,1);}
+.phase-card-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;}
+.phase-card h3{font-size:.95rem;font-weight:700;margin-bottom:.5rem;}
+.phase-card p{font-size:.8rem;line-height:1.7;color:var(--w60);}
+.phase-badge{display:inline-block;padding:.18rem .6rem;border-radius:4px;font-size:.6rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:rgba(0,200,100,.08);border:1px solid rgba(0,200,100,.2);color:#00c864;margin-top:.8rem;}
+
+/* TOOLS */
+.tools-section{max-width:1300px;margin:0 auto;padding:6rem 4rem;}
+.tools-head{text-align:center;margin-bottom:4rem;}
+.tools-head p{color:var(--w60);max-width:480px;margin:.6rem auto 0;font-size:.9rem;line-height:1.75;}
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;transition:border-color .3s,transform .2s;}
+.tool-card:hover{border-color:var(--border-b);transform:translateY(-3px);}
+.tool-emoji{font-size:2rem;display:block;margin-bottom:.6rem;}
+.tool-card h4{font-size:.82rem;font-weight:700;margin-bottom:.2rem;}
+.tool-card p{font-size:.72rem;color:var(--w60);}
+
+/* FAQ */
+.faq-section{background:var(--deep);border-top:1px solid var(--border);padding:6rem 4rem;}
+.faq-inner{max-width:800px;margin:0 auto;}
+.faq-head{text-align:center;margin-bottom:4rem;}
+.faq-list{display:flex;flex-direction:column;gap:.5rem;}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .3s;}
+.faq-item.open{border-color:var(--border-b);}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.4rem 1.8rem;cursor:pointer;font-size:.92rem;font-weight:600;gap:1rem;}
+.faq-q:hover{color:var(--blue-b);}
+.faq-icon{width:24px;height:24px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s,border-color .3s,background .3s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);border-color:var(--blue-b);background:var(--blue-subtle);}
+.faq-icon svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease;}
+.faq-item.open .faq-a{max-height:300px;}
+.faq-a-inner{padding:0 1.8rem 1.4rem;font-size:.86rem;color:var(--w60);line-height:1.8;}
+
+/* CTA */
+.process-cta{padding:6rem 4rem;text-align:center;position:relative;overflow:hidden;background:var(--black);}
+.cta-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(77,77,255,.18) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+.process-cta-inner{position:relative;z-index:2;}
+.process-cta h2{font-size:clamp(2.2rem,4vw,3.5rem);font-weight:500;letter-spacing:-.02em;margin-bottom:1rem;}
+.process-cta h2 .grad{color:var(--blue-b);}
+.process-cta p{font-size:.95rem;color:var(--w60);max-width:480px;margin:0 auto 2.5rem;line-height:1.8;}
+
+@media(max-width:1024px){
+  .process-section{padding:5rem 2rem;}
+  .process-list{gap:3rem;}
+  .step-content{width:46%;padding:1.8rem;}
+  .step-visual svg{width:80px;height:80px;}
+  .phases-section{padding:5rem 2rem;}
+  .phases-grid{grid-template-columns:1fr 1fr;}
+  .tools-section{padding:5rem 2rem;}
+  .tools-grid{grid-template-columns:1fr 1fr;}
+  .faq-section{padding:5rem 2rem;}
+  .process-cta{padding:5rem 2rem;}
+  .hero-quick-stats{gap:2rem;}
+}
+@media(max-width:768px){
+  .process-line{left:50%;transform:translateX(-50%);width:1px;background:none;border-left:1px dashed rgba(77,77,255,.4);}
+  .process-step{flex-direction:column !important;align-items:center;gap:0;}
+  .step-num{position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:28px;height:28px;min-width:28px;font-size:.7rem;background:var(--blue);border:none;font-weight:800;box-shadow:0 0 15px var(--blue);z-index:10;}
+  .step-content{width:100% !important;text-align:center !important;margin:0 !important;padding:3.5rem 1.5rem 2rem;background:rgba(15,15,30,.4);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.08);border-radius:28px;position:relative;}
+  .step-deliverables{justify-content:center !important;}
+  .step-visual{position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:80px;height:80px;z-index:5;background:#0d0d1a;padding:16px;border-radius:50%;border:1px solid rgba(77,77,255,.3);}
+  .step-visual svg{width:100%;height:100%;}
+  .process-step:hover .step-content{transform:translateY(-5px);}
+  .process-step:hover .step-visual{transform:translateX(-50%) scale(1.1);}
+  .phases-grid{grid-template-columns:1fr;}
+  .tools-grid{grid-template-columns:1fr 1fr;}
+  .hero-quick-stats{flex-direction:column;gap:1.5rem;}
+  .cta-btns{flex-direction:column;align-items:center;}
+}
+
+/* ===== Responsive Scaffold (Manual Overrides) ===== */
+
+@media (max-width: 479px) {
+  .page-hero {}
+  .hero-grid-bg {}
+  .hero-orb {}
+  .page-hero-inner {}
+  .breadcrumb {}
+  .breadcrumb a {}
+  .breadcrumb a:hover {}
+  .breadcrumb-sep {}
+  .breadcrumb span {}
+  .page-hero-inner h1 {}
+  .page-hero-inner h1 .grad {}
+  .hero-sub {}
+  .hero-quick-stats {}
+  .hqs {}
+  .hqs-num {}
+  .hqs-lbl {}
+  .hqs-div {}
+  .process-section {}
+  .process-head {}
+  .process-head p {}
+  .process-list {}
+  .process-line {}
+  .process-step {}
+  .process-step:nth-child(even) {}
+  .step-content {}
+  .process-step:nth-child(odd) .step-content {}
+  .process-step:nth-child(even) .step-content {}
+  .process-step:hover .step-content {}
+  .step-content h3 {}
+  .step-content p {}
+  .step-deliverables {}
+  .process-step:nth-child(odd) .step-deliverables {}
+  .step-d-tag {}
+  .step-num {}
+  .process-step:hover .step-num {}
+  .step-visual {}
+  .process-step:hover .step-visual {}
+  .step-visual svg {}
+  .process-step:hover .step-visual svg {}
+  .step-duration {}
+  .step-duration::before {}
+  .phases-section {}
+  .phases-inner {}
+  .phases-head {}
+  .phases-head p {}
+  .phases-grid {}
+  .phase-card {}
+  .phase-card::before {}
+  .phase-card:hover {}
+  .phase-card:hover::before {}
+  .phase-card-icon {}
+  .phase-card-icon svg {}
+  .phase-card h3 {}
+  .phase-card p {}
+  .phase-badge {}
+  .tools-section {}
+  .tools-head {}
+  .tools-head p {}
+  .tools-grid {}
+  .tool-card {}
+  .tool-card:hover {}
+  .tool-emoji {}
+  .tool-card h4 {}
+  .tool-card p {}
+  .faq-section {}
+  .faq-inner {}
+  .faq-head {}
+  .faq-list {}
+  .faq-item {}
+  .faq-item.open {}
+  .faq-q {}
+  .faq-q:hover {}
+  .faq-icon {}
+  .faq-item.open .faq-icon {}
+  .faq-icon svg {}
+  .faq-a {}
+  .faq-item.open .faq-a {}
+  .faq-a-inner {}
+  .process-cta {}
+  .cta-glow {}
+  .process-cta-inner {}
+  .process-cta h2 {}
+  .process-cta h2 .grad {}
+  .process-cta p {}
+  .cta-btns {}
+}
+
+@media (min-width: 480px and max-width: 639px) {
+  .page-hero {}
+  .hero-grid-bg {}
+  .hero-orb {}
+  .page-hero-inner {}
+  .breadcrumb {}
+  .breadcrumb a {}
+  .breadcrumb a:hover {}
+  .breadcrumb-sep {}
+  .breadcrumb span {}
+  .page-hero-inner h1 {}
+  .page-hero-inner h1 .grad {}
+  .hero-sub {}
+  .hero-quick-stats {}
+  .hqs {}
+  .hqs-num {}
+  .hqs-lbl {}
+  .hqs-div {}
+  .process-section {}
+  .process-head {}
+  .process-head p {}
+  .process-list {}
+  .process-line {}
+  .process-step {}
+  .process-step:nth-child(even) {}
+  .step-content {}
+  .process-step:nth-child(odd) .step-content {}
+  .process-step:nth-child(even) .step-content {}
+  .process-step:hover .step-content {}
+  .step-content h3 {}
+  .step-content p {}
+  .step-deliverables {}
+  .process-step:nth-child(odd) .step-deliverables {}
+  .step-d-tag {}
+  .step-num {}
+  .process-step:hover .step-num {}
+  .step-visual {}
+  .process-step:hover .step-visual {}
+  .step-visual svg {}
+  .process-step:hover .step-visual svg {}
+  .step-duration {}
+  .step-duration::before {}
+  .phases-section {}
+  .phases-inner {}
+  .phases-head {}
+  .phases-head p {}
+  .phases-grid {}
+  .phase-card {}
+  .phase-card::before {}
+  .phase-card:hover {}
+  .phase-card:hover::before {}
+  .phase-card-icon {}
+  .phase-card-icon svg {}
+  .phase-card h3 {}
+  .phase-card p {}
+  .phase-badge {}
+  .tools-section {}
+  .tools-head {}
+  .tools-head p {}
+  .tools-grid {}
+  .tool-card {}
+  .tool-card:hover {}
+  .tool-emoji {}
+  .tool-card h4 {}
+  .tool-card p {}
+  .faq-section {}
+  .faq-inner {}
+  .faq-head {}
+  .faq-list {}
+  .faq-item {}
+  .faq-item.open {}
+  .faq-q {}
+  .faq-q:hover {}
+  .faq-icon {}
+  .faq-item.open .faq-icon {}
+  .faq-icon svg {}
+  .faq-a {}
+  .faq-item.open .faq-a {}
+  .faq-a-inner {}
+  .process-cta {}
+  .cta-glow {}
+  .process-cta-inner {}
+  .process-cta h2 {}
+  .process-cta h2 .grad {}
+  .process-cta p {}
+  .cta-btns {}
+}
+
+@media (min-width: 640px and max-width: 767px) {
+  .page-hero {}
+  .hero-grid-bg {}
+  .hero-orb {}
+  .page-hero-inner {}
+  .breadcrumb {}
+  .breadcrumb a {}
+  .breadcrumb a:hover {}
+  .breadcrumb-sep {}
+  .breadcrumb span {}
+  .page-hero-inner h1 {}
+  .page-hero-inner h1 .grad {}
+  .hero-sub {}
+  .hero-quick-stats {}
+  .hqs {}
+  .hqs-num {}
+  .hqs-lbl {}
+  .hqs-div {}
+  .process-section {}
+  .process-head {}
+  .process-head p {}
+  .process-list {}
+  .process-line {}
+  .process-step {}
+  .process-step:nth-child(even) {}
+  .step-content {}
+  .process-step:nth-child(odd) .step-content {}
+  .process-step:nth-child(even) .step-content {}
+  .process-step:hover .step-content {}
+  .step-content h3 {}
+  .step-content p {}
+  .step-deliverables {}
+  .process-step:nth-child(odd) .step-deliverables {}
+  .step-d-tag {}
+  .step-num {}
+  .process-step:hover .step-num {}
+  .step-visual {}
+  .process-step:hover .step-visual {}
+  .step-visual svg {}
+  .process-step:hover .step-visual svg {}
+  .step-duration {}
+  .step-duration::before {}
+  .phases-section {}
+  .phases-inner {}
+  .phases-head {}
+  .phases-head p {}
+  .phases-grid {}
+  .phase-card {}
+  .phase-card::before {}
+  .phase-card:hover {}
+  .phase-card:hover::before {}
+  .phase-card-icon {}
+  .phase-card-icon svg {}
+  .phase-card h3 {}
+  .phase-card p {}
+  .phase-badge {}
+  .tools-section {}
+  .tools-head {}
+  .tools-head p {}
+  .tools-grid {}
+  .tool-card {}
+  .tool-card:hover {}
+  .tool-emoji {}
+  .tool-card h4 {}
+  .tool-card p {}
+  .faq-section {}
+  .faq-inner {}
+  .faq-head {}
+  .faq-list {}
+  .faq-item {}
+  .faq-item.open {}
+  .faq-q {}
+  .faq-q:hover {}
+  .faq-icon {}
+  .faq-item.open .faq-icon {}
+  .faq-icon svg {}
+  .faq-a {}
+  .faq-item.open .faq-a {}
+  .faq-a-inner {}
+  .process-cta {}
+  .cta-glow {}
+  .process-cta-inner {}
+  .process-cta h2 {}
+  .process-cta h2 .grad {}
+  .process-cta p {}
+  .cta-btns {}
+}
+
+@media (min-width: 768px and max-width: 1023px) {
+  .page-hero {}
+  .hero-grid-bg {}
+  .hero-orb {}
+  .page-hero-inner {}
+  .breadcrumb {}
+  .breadcrumb a {}
+  .breadcrumb a:hover {}
+  .breadcrumb-sep {}
+  .breadcrumb span {}
+  .page-hero-inner h1 {}
+  .page-hero-inner h1 .grad {}
+  .hero-sub {}
+  .hero-quick-stats {}
+  .hqs {}
+  .hqs-num {}
+  .hqs-lbl {}
+  .hqs-div {}
+  .process-section {}
+  .process-head {}
+  .process-head p {}
+  .process-list {}
+  .process-line {}
+  .process-step {}
+  .process-step:nth-child(even) {}
+  .step-content {}
+  .process-step:nth-child(odd) .step-content {}
+  .process-step:nth-child(even) .step-content {}
+  .process-step:hover .step-content {}
+  .step-content h3 {}
+  .step-content p {}
+  .step-deliverables {}
+  .process-step:nth-child(odd) .step-deliverables {}
+  .step-d-tag {}
+  .step-num {}
+  .process-step:hover .step-num {}
+  .step-visual {}
+  .process-step:hover .step-visual {}
+  .step-visual svg {}
+  .process-step:hover .step-visual svg {}
+  .step-duration {}
+  .step-duration::before {}
+  .phases-section {}
+  .phases-inner {}
+  .phases-head {}
+  .phases-head p {}
+  .phases-grid {}
+  .phase-card {}
+  .phase-card::before {}
+  .phase-card:hover {}
+  .phase-card:hover::before {}
+  .phase-card-icon {}
+  .phase-card-icon svg {}
+  .phase-card h3 {}
+  .phase-card p {}
+  .phase-badge {}
+  .tools-section {}
+  .tools-head {}
+  .tools-head p {}
+  .tools-grid {}
+  .tool-card {}
+  .tool-card:hover {}
+  .tool-emoji {}
+  .tool-card h4 {}
+  .tool-card p {}
+  .faq-section {}
+  .faq-inner {}
+  .faq-head {}
+  .faq-list {}
+  .faq-item {}
+  .faq-item.open {}
+  .faq-q {}
+  .faq-q:hover {}
+  .faq-icon {}
+  .faq-item.open .faq-icon {}
+  .faq-icon svg {}
+  .faq-a {}
+  .faq-item.open .faq-a {}
+  .faq-a-inner {}
+  .process-cta {}
+  .cta-glow {}
+  .process-cta-inner {}
+  .process-cta h2 {}
+  .process-cta h2 .grad {}
+  .process-cta p {}
+  .cta-btns {}
+}
+
+@media (min-width: 1024px and max-width: 1279px) {
+  .page-hero {}
+  .hero-grid-bg {}
+  .hero-orb {}
+  .page-hero-inner {}
+  .breadcrumb {}
+  .breadcrumb a {}
+  .breadcrumb a:hover {}
+  .breadcrumb-sep {}
+  .breadcrumb span {}
+  .page-hero-inner h1 {}
+  .page-hero-inner h1 .grad {}
+  .hero-sub {}
+  .hero-quick-stats {}
+  .hqs {}
+  .hqs-num {}
+  .hqs-lbl {}
+  .hqs-div {}
+  .process-section {}
+  .process-head {}
+  .process-head p {}
+  .process-list {}
+  .process-line {}
+  .process-step {}
+  .process-step:nth-child(even) {}
+  .step-content {}
+  .process-step:nth-child(odd) .step-content {}
+  .process-step:nth-child(even) .step-content {}
+  .process-step:hover .step-content {}
+  .step-content h3 {}
+  .step-content p {}
+  .step-deliverables {}
+  .process-step:nth-child(odd) .step-deliverables {}
+  .step-d-tag {}
+  .step-num {}
+  .process-step:hover .step-num {}
+  .step-visual {}
+  .process-step:hover .step-visual {}
+  .step-visual svg {}
+  .process-step:hover .step-visual svg {}
+  .step-duration {}
+  .step-duration::before {}
+  .phases-section {}
+  .phases-inner {}
+  .phases-head {}
+  .phases-head p {}
+  .phases-grid {}
+  .phase-card {}
+  .phase-card::before {}
+  .phase-card:hover {}
+  .phase-card:hover::before {}
+  .phase-card-icon {}
+  .phase-card-icon svg {}
+  .phase-card h3 {}
+  .phase-card p {}
+  .phase-badge {}
+  .tools-section {}
+  .tools-head {}
+  .tools-head p {}
+  .tools-grid {}
+  .tool-card {}
+  .tool-card:hover {}
+  .tool-emoji {}
+  .tool-card h4 {}
+  .tool-card p {}
+  .faq-section {}
+  .faq-inner {}
+  .faq-head {}
+  .faq-list {}
+  .faq-item {}
+  .faq-item.open {}
+  .faq-q {}
+  .faq-q:hover {}
+  .faq-icon {}
+  .faq-item.open .faq-icon {}
+  .faq-icon svg {}
+  .faq-a {}
+  .faq-item.open .faq-a {}
+  .faq-a-inner {}
+  .process-cta {}
+  .cta-glow {}
+  .process-cta-inner {}
+  .process-cta h2 {}
+  .process-cta h2 .grad {}
+  .process-cta p {}
+  .cta-btns {}
+}
+
+@media (min-width: 1280px) {
+  .page-hero {}
+  .hero-grid-bg {}
+  .hero-orb {}
+  .page-hero-inner {}
+  .breadcrumb {}
+  .breadcrumb a {}
+  .breadcrumb a:hover {}
+  .breadcrumb-sep {}
+  .breadcrumb span {}
+  .page-hero-inner h1 {}
+  .page-hero-inner h1 .grad {}
+  .hero-sub {}
+  .hero-quick-stats {}
+  .hqs {}
+  .hqs-num {}
+  .hqs-lbl {}
+  .hqs-div {}
+  .process-section {}
+  .process-head {}
+  .process-head p {}
+  .process-list {}
+  .process-line {}
+  .process-step {}
+  .process-step:nth-child(even) {}
+  .step-content {}
+  .process-step:nth-child(odd) .step-content {}
+  .process-step:nth-child(even) .step-content {}
+  .process-step:hover .step-content {}
+  .step-content h3 {}
+  .step-content p {}
+  .step-deliverables {}
+  .process-step:nth-child(odd) .step-deliverables {}
+  .step-d-tag {}
+  .step-num {}
+  .process-step:hover .step-num {}
+  .step-visual {}
+  .process-step:hover .step-visual {}
+  .step-visual svg {}
+  .process-step:hover .step-visual svg {}
+  .step-duration {}
+  .step-duration::before {}
+  .phases-section {}
+  .phases-inner {}
+  .phases-head {}
+  .phases-head p {}
+  .phases-grid {}
+  .phase-card {}
+  .phase-card::before {}
+  .phase-card:hover {}
+  .phase-card:hover::before {}
+  .phase-card-icon {}
+  .phase-card-icon svg {}
+  .phase-card h3 {}
+  .phase-card p {}
+  .phase-badge {}
+  .tools-section {}
+  .tools-head {}
+  .tools-head p {}
+  .tools-grid {}
+  .tool-card {}
+  .tool-card:hover {}
+  .tool-emoji {}
+  .tool-card h4 {}
+  .tool-card p {}
+  .faq-section {}
+  .faq-inner {}
+  .faq-head {}
+  .faq-list {}
+  .faq-item {}
+  .faq-item.open {}
+  .faq-q {}
+  .faq-q:hover {}
+  .faq-icon {}
+  .faq-item.open .faq-icon {}
+  .faq-icon svg {}
+  .faq-a {}
+  .faq-item.open .faq-a {}
+  .faq-a-inner {}
+  .process-cta {}
+  .cta-glow {}
+  .process-cta-inner {}
+  .process-cta h2 {}
+  .process-cta h2 .grad {}
+  .process-cta p {}
+  .cta-btns {}
+}

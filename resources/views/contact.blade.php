@@ -181,10 +181,10 @@
     @if(isset($offices['items']))
       @foreach($offices['items'] as $i => $off)
         <div class="office-card reveal" style="transition-delay:{{ $i * 0.08 }}s;">
-          <span class="office-flag">{{ $off['flag'] }}</span>
-          <h3>{{ $off['city'] }}</h3>
-          <p>{!! nl2br(e($off['details'])) !!}</p>
-          <div class="office-status"><span class="sdot"></span><span style="color:#00e676;font-size:.65rem;font-weight:600;">{{ $off['status'] }}</span></div>
+          <span class="office-flag">{{ $off['flag'] ?? '' }}</span>
+          <h3>{{ $off['city'] ?? $off['name'] ?? '' }}</h3>
+          <p>{!! nl2br(e($off['details'] ?? $off['address'] ?? '')) !!}</p>
+          <div class="office-status"><span class="sdot"></span><span style="color:#00e676;font-size:.65rem;font-weight:600;">{{ $off['status'] ?? '' }}</span></div>
         </div>
       @endforeach
     @endif

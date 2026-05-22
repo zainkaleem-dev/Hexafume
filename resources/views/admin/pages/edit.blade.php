@@ -413,11 +413,11 @@
                       <button type="button" class="repeater-remove-btn" onclick="this.closest('.repeater-item').remove()">×</button>
                     </div>
                     <div class="form-row">
-                      <div class="form-group" style="flex:0 0 80px;"><label>Flag</label><input type="text" name="sections[offices][items][{{ $idx }}][flag]" value="{{ $item['flag'] }}"/></div>
-                      <div class="form-group"><label>City</label><input type="text" name="sections[offices][items][{{ $idx }}][city]" value="{{ $item['city'] }}"/></div>
+                      <div class="form-group" style="flex:0 0 80px;"><label>Flag</label><input type="text" name="sections[offices][items][{{ $idx }}][flag]" value="{{ $item['flag'] ?? '' }}"/></div>
+                      <div class="form-group"><label>City</label><input type="text" name="sections[offices][items][{{ $idx }}][city]" value="{{ $item['city'] ?? $item['name'] ?? '' }}"/></div>
                     </div>
-                    <div class="form-group" style="margin-top:.5rem;"><label>Details (Address/Phone)</label><textarea name="sections[offices][items][{{ $idx }}][details]" rows="2">{{ $item['details'] }}</textarea></div>
-                    <div class="form-group" style="margin-top:.5rem;"><label>Status (e.g. Open Now)</label><input type="text" name="sections[offices][items][{{ $idx }}][status]" value="{{ $item['status'] }}"/></div>
+                    <div class="form-group" style="margin-top:.5rem;"><label>Details (Address/Phone)</label><textarea name="sections[offices][items][{{ $idx }}][details]" rows="2">{{ $item['details'] ?? $item['address'] ?? '' }}</textarea></div>
+                    <div class="form-group" style="margin-top:.5rem;"><label>Status (e.g. Open Now)</label><input type="text" name="sections[offices][items][{{ $idx }}][status]" value="{{ $item['status'] ?? '' }}"/></div>
                   </div>
                 @endforeach
               </div>
@@ -638,10 +638,11 @@ function addOffice() {
   div.innerHTML = `
     <div class="repeater-item-header"><span class="repeater-item-num">New Office</span><button type="button" class="repeater-remove-btn" onclick="this.closest('.repeater-item').remove()">×</button></div>
     <div class="form-row">
-      <div class="form-group"><label>Flag Emoji</label><input type="text" name="sections[offices][items][${officeCount}][flag]"/></div>
-      <div class="form-group"><label>City Name</label><input type="text" name="sections[offices][items][${officeCount}][name]"/></div>
+      <div class="form-group" style="flex:0 0 80px;"><label>Flag</label><input type="text" name="sections[offices][items][${officeCount}][flag]"/></div>
+      <div class="form-group"><label>City</label><input type="text" name="sections[offices][items][${officeCount}][city]"/></div>
     </div>
-    <div class="form-group" style="margin-top:.5rem;"><label>Address</label><input type="text" name="sections[offices][items][${officeCount}][address]"/></div>
+    <div class="form-group" style="margin-top:.5rem;"><label>Details (Address/Phone)</label><textarea name="sections[offices][items][${officeCount}][details]" rows="2"></textarea></div>
+    <div class="form-group" style="margin-top:.5rem;"><label>Status (e.g. Open Now)</label><input type="text" name="sections[offices][items][${officeCount}][status]"/></div>
   `;
   grid.appendChild(div);
   officeCount++;

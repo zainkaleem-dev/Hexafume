@@ -5,6 +5,7 @@
     <div class="nav-logo-icon" style="display:none;">H</div>
   </a>
   <ul class="nav-links">
+    <li><a href="{{ route('home') }}">Home</a></li>
     <li><a href="{{ route('about') }}">About</a></li>
     <li><a href="{{ route('services') }}">Services</a></li>
     <li><a href="{{ route('process') }}">Process</a></li>
@@ -20,6 +21,7 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="{{ route('home') }}" onclick="closeMenu()">Home</a>
   <a href="{{ route('about') }}" onclick="closeMenu()">About</a>
   <a href="{{ route('services') }}" onclick="closeMenu()">Services</a>
   <a href="{{ route('process') }}" onclick="closeMenu()">Process</a>

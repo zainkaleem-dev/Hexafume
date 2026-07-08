@@ -47,6 +47,10 @@
       <span id="adminThemeLabel">Theme</span>
       <span id="adminThemeBadge" class="nav-badge">Dark</span>
     </a>
+    <a href="{{ route('admin.tools.index') }}" class="nav-item {{ request()->routeIs('admin.tools.*') ? 'active' : '' }}">
+      <svg viewBox="0 0 24 24"><path d="M14.7 6.3l3 3M5 19l6.5-6.5m1.5-6.5l3 3-3.5 3.5-3-3L12 5.5z"/><path d="M14.5 3.5l6 6-2 2-6-6z"/></svg>
+      System Tools
+    </a>
   </nav>
 
   <div class="sidebar-bottom">

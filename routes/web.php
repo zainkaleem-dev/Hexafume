@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\Admin\SystemToolsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +73,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
         Route::get('/pages/{slug}/edit', [PageController::class, 'edit'])->name('pages.edit');
         Route::match(['PUT', 'POST'], '/pages/{slug}', [PageController::class, 'update'])->name('pages.update');
+
+        Route::get('/tools', [SystemToolsController::class, 'index'])->name('tools.index');
+        Route::post('/tools/run', [SystemToolsController::class, 'run'])->name('tools.run');
     });
 });
 

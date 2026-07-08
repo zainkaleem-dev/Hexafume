@@ -330,7 +330,13 @@ select option { background: #0c0c18; color: #fff; }
   overflow: hidden; margin-bottom: .2rem;
   transition: border-color .3s;
 }
-.preview-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.preview-avatar img,
+.preview-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 #previewInitials {
   font-size: 1.4rem; font-weight: 800; color: var(--blue-b);
   font-family: var(--font-display);

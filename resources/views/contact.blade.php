@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', "Contact — Hexafume | Let's Start a Conversation")
-@section('meta_description', "Get in touch with Hexafume. Tell us about your project and we'll get back to you within 24 hours. DHA 1, Islamabad — hello@hexafume.com — +92 315 088 4024")
+@section('meta_description', "Get in touch with Hexafume. Tell us about your project and we'll get back to you within 24 hours. DHA 1, Islamabad — info@hexafume.com — +92 344 9121053")
 
 @push('page_styles')
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">

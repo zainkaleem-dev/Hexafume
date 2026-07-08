@@ -23,15 +23,16 @@
       <div class="logo-title">HEXA<span class="dot">.</span>FUME</div>
       <div class="logo-sub">Admin Panel</div>
     </div>
-    <div class="error-msg" id="errorMsg">
+    <div class="error-msg {{ $errors->any() ? 'show' : '' }}" id="errorMsg">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-      <span id="errorText">Invalid credentials. Please try again.</span>
+      <span id="errorText">{{ $errors->any() ? $errors->first() : 'Invalid credentials. Please try again.' }}</span>
     </div>
-    <form id="loginForm" novalidate>
+    <form id="loginForm" method="POST" action="{{ route('admin.login.submit') }}" novalidate>
+      @csrf
       <div class="form-group">
         <label for="email">Email Address</label>
         <div class="input-wrap">
-          <input type="email" id="email" placeholder="admin@hexafume.com" autocomplete="email" required/>
+          <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="admin@hexafume.com" autocomplete="email" required/>
           <span class="input-icon">
             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </span>
@@ -40,7 +41,7 @@
       <div class="form-group">
         <label for="password">Password</label>
         <div class="input-wrap">
-          <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password" required/>
+          <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required/>
           <span class="input-icon">
             <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
           </span>
@@ -51,10 +52,10 @@
       </div>
       <div class="form-row">
         <label class="checkbox-wrap">
-          <input type="checkbox" id="remember"/>
+          <input type="checkbox" id="remember" name="remember" value="1"/>
           <span>Keep me signed in</span>
         </label>
-        <a href="#" class="forgot-link">Forgot password?</a>
+        <a href="{{ route('admin.password.request') }}" class="forgot-link">Forgot password?</a>
       </div>
       <button type="submit" class="btn-login" id="loginBtn">
         <span class="btn-text">Sign In</span>
@@ -79,28 +80,17 @@ document.getElementById('togglePw').addEventListener('click', function() {
   }
 });
 document.getElementById('loginForm').addEventListener('submit', function(e) {
-  e.preventDefault();
   const btn = document.getElementById('loginBtn');
   const err = document.getElementById('errorMsg');
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value;
-  err.classList.remove('show');
   if (!email || !password) {
+    e.preventDefault();
     document.getElementById('errorText').textContent = 'Please fill in all fields.';
     err.classList.add('show');
     return;
   }
   btn.classList.add('loading');
-  setTimeout(() => {
-    btn.classList.remove('loading');
-    if (email === 'admin@hexafume.com' && password === 'admin123') {
-      sessionStorage.setItem('hx_admin', '1');
-      window.location.href = "{{ route('admin.dashboard') }}";
-    } else {
-      document.getElementById('errorText').textContent = 'Invalid email or password.';
-      err.classList.add('show');
-    }
-  }, 1200);
 });
 </script>
 </body>

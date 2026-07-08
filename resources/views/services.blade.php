@@ -81,27 +81,6 @@
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="features-strip">
-  <div class="features-inner">
-    <div class="features-head reveal">
-      <div class="section-badge"><span class="dot"></span>{{ $features['badge'] ?? 'Why Us' }}</div>
-      <h2 class="section-title">{!! $features['title'] ?? 'Every Project Comes With <span class="grad">This</span>' !!}</h2>
-    </div>
-    <div class="features-grid">
-      @if(isset($features['items']))
-        @foreach($features['items'] as $i => $feat)
-          <div class="feat-card reveal" style="transition-delay:{{ strval($i * 0.08) }}s;">
-            <span class="feat-icon">{{ $feat['icon'] }}</span>
-            <h3>{{ $feat['title'] }}</h3>
-            <p>{{ $feat['desc'] }}</p>
-          </div>
-        @endforeach
-      @endif
-    </div>
-  </div>
-</section>
-
 <!-- TECH STACK -->
 <section class="tech-section">
   <div class="tech-head reveal">

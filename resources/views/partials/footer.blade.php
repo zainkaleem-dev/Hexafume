@@ -5,7 +5,7 @@
       <img src="{{ asset('images/hexafume/hexafume-white.png') }}" alt="Hexafume" style="height:36px;width:auto;filter:brightness(1.1);" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/>
       <span style="display:none;">HEXA<span class="dot">FUME</span></span>
     </div>
-    <p>We're in the business of providing strategic digital solutions. Since our inception, we've developed over 1200+ digital experiences that enable brands to connect globally.</p>
+    <p>We're in the business of providing strategic digital solutions. Since our inception, we've delivered 300+ projects that enable brands to connect globally.</p>
   </div>
   <div class="footer-col">
     <h4>Services</h4>

@@ -133,7 +133,8 @@ function renderMembers() {
     <div class="member-card">
       <div class="member-card-header">
         <div class="member-avatar ${m.photo ? 'has-photo' : ''}">
-          ${m.photo ? `<img src="${m.photo}" alt="${m.name}"/>` : `<span>${m.initials || m.name.substring(0,2).toUpperCase()}</span>`}
+          <span class="avatar-fallback">${m.initials || m.name.substring(0,2).toUpperCase()}</span>
+          ${m.photo ? `<img src="${m.photo}" alt="${m.name}" onload="this.previousElementSibling.style.display='none';" onerror="this.remove();this.parentElement.classList.remove('has-photo');"/>` : ''}
         </div>
         <span class="member-status ${statusClass}">${statusText}</span>
         ${m.is_featured ? '<span class="featured-badge" title="Featured">★</span>' : ''}

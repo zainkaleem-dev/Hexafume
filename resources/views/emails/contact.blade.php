@@ -343,8 +343,8 @@
         <div class="footer-brand">HEXA<span>FUME</span></div>
         <p>
             DHA 1, Islamabad, Pakistan &bull;
-            <a href="mailto:support@hexafume.com">support@hexafume.com</a> &bull;
-            <a href="tel:+923150884024">+92 315 088 4024</a>
+            <a href="mailto:info@hexafume.com">info@hexafume.com</a> &bull;
+            <a href="tel:+923449121053">+92 344 9121053</a>
         </p>
         <p style="margin-top:10px;">
             &copy; {{ date('Y') }} Hexafume. This is an automated notification &mdash; do not reply to this email.

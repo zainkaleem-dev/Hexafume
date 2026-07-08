@@ -88,34 +88,6 @@
 </section>
 
 
-<!-- CULTURE SECTION -->
-<section class="culture-section">
-  <div class="culture-inner">
-    <div class="culture-head reveal">
-      <div class="section-badge"><span class="dot"></span>{{ $culture['badge'] ?? 'Our Culture' }}</div>
-      <h2>{!! $culture['title'] ?? 'Built on <span class="grad">Principles</span>' !!}</h2>
-      <p>{{ $culture['desc'] ?? 'The values that guide how we work, build, and grow — together.' }}</p>
-    </div>
-    <div class="culture-grid">
-      @if(isset($culture['items']))
-        @foreach($culture['items'] as $index => $item)
-          <div class="culture-card reveal" style="transition-delay:{{ $index * 80 }}ms">
-            <div class="culture-icon">
-              @if(str_contains(strtolower($item['title']), 'speed')) <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-              @elseif(str_contains(strtolower($item['title']), 'integrity') || str_contains(strtolower($item['title']), 'craft')) <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              @elseif(str_contains(strtolower($item['title']), 'together') || str_contains(strtolower($item['title']), 'grow')) <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-              @elseif(str_contains(strtolower($item['title']), 'system')) <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-              @else <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> @endif
-            </div>
-            <h3>{{ $item['title'] }}</h3>
-            <p>{{ $item['desc'] }}</p>
-          </div>
-        @endforeach
-      @endif
-    </div>
-  </div>
-</section>
-
 <!-- JOIN CTA -->
 <section class="join-section">
   <div class="join-card reveal">

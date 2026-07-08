@@ -138,9 +138,9 @@
         <div class="signature">
             <strong>Hexafume Team</strong>
             DHA 1, Islamabad, Pakistan<br>
-            <a href="mailto:support@hexafume.com" style="color:#4d4dff;text-decoration:none;">support@hexafume.com</a>
+            <a href="mailto:info@hexafume.com" style="color:#4d4dff;text-decoration:none;">info@hexafume.com</a>
             &bull;
-            <a href="tel:+923150884024" style="color:#4d4dff;text-decoration:none;">+92 315 088 4024</a>
+            <a href="tel:+923449121053" style="color:#4d4dff;text-decoration:none;">+92 344 9121053</a>
         </div>
     </div>
 
@@ -148,8 +148,8 @@
         <div class="footer-brand">HEXA<span>FUME</span></div>
         <p>
             DHA 1, Islamabad, Pakistan &bull;
-            <a href="mailto:support@hexafume.com">support@hexafume.com</a> &bull;
-            <a href="tel:+923150884024">+92 315 088 4024</a>
+            <a href="mailto:info@hexafume.com">info@hexafume.com</a> &bull;
+            <a href="tel:+923449121053">+92 344 9121053</a>
         </p>
         <p style="margin-top:10px;">
             &copy; {{ date('Y') }} Hexafume. All rights reserved.

@@ -24,9 +24,9 @@ class PageSeeder extends Seeder
             'title' => 'We Build Digital Futures That Matter.',
             'subtitle' => 'We design and deploy agentic AI, high-performance SaaS platforms, and automation systems that turn ideas into scalable, revenue-generating products.',
             'stats' => [
-                ['num' => '1200', 'label' => 'Projects Delivered'],
-                ['num' => '50', 'label' => 'Expert Engineers'],
-                ['num' => '15', 'label' => 'Countries Served'],
+                ['num' => '300', 'label' => 'Projects Delivered'],
+                ['num' => '35', 'label' => 'Expert Engineers'],
+                ['num' => '20', 'label' => 'Countries Served'],
             ]
         ]]);
 
@@ -43,7 +43,7 @@ class PageSeeder extends Seeder
                 ['title' => 'Innovation', 'desc' => 'Cutting Edge Tech', 'icon' => '🚀'],
                 ['title' => 'Performance', 'desc' => 'Optimized Solutions', 'icon' => '⚡'],
                 ['title' => 'Security', 'desc' => 'Enterprise Grade', 'icon' => '🔒'],
-                ['title' => 'Global Reach', 'desc' => '15+ Countries', 'icon' => '🌍'],
+                ['title' => 'Global Reach', 'desc' => '20+ Countries', 'icon' => '🌍'],
             ],
             'btn_text' => 'About Us'
         ]]);
@@ -78,9 +78,9 @@ class PageSeeder extends Seeder
             'address_label' => 'Our Office',
             'address' => 'DHA 1, Islamabad, Pakistan',
             'email_label' => 'Email Us',
-            'email' => 'support@hexafume.com',
+            'email' => 'info@hexafume.com',
             'phone_label' => 'Call Us 24/7',
-            'phone' => '+92 315 088 4024'
+            'phone' => '+92 344 9121053'
         ]]);
 
         \App\Models\PageSection::updateOrCreate(['page_id' => $home->id, 'section_key' => 'cta'], ['sort_order' => 9, 'content' => [
@@ -103,9 +103,9 @@ class PageSeeder extends Seeder
             'title' => 'We Build <span class="grad">Digital Futures</span> That Matter',
             'subtitle' => 'Hexafume is a next-generation digital agency pioneered by excellence and innovation.',
             'stats' => [
-                ['num' => '1200', 'label' => 'Projects Delivered'],
-                ['num' => '50', 'label' => 'Expert Engineers'],
-                ['num' => '15', 'label' => 'Countries Served'],
+                ['num' => '300', 'label' => 'Projects Delivered'],
+                ['num' => '35', 'label' => 'Expert Engineers'],
+                ['num' => '20', 'label' => 'Countries Served'],
                 ['num' => '3', 'label' => 'Years Building'],
             ],
             'btn1_text' => 'Explore Services',
@@ -120,9 +120,9 @@ class PageSeeder extends Seeder
             'journey_badge' => 'Our Journey',
             'btn_text' => 'Meet the Team',
             'timeline' => [
-                ['year' => '2022', 'title' => 'Founded in Islamabad', 'desc' => 'Launched with a mission to make world-class technology accessible.'],
-                ['year' => '2023', 'title' => 'First 50 Projects Shipped', 'desc' => 'Expanded to 20 engineers and earning trust.'],
-                ['year' => '2024', 'title' => 'AI Division Launched', 'desc' => 'Dedicated Agentic AI research team formed.'],
+                ['year' => '2024', 'title' => 'Founded in Islamabad', 'desc' => 'Launched with a mission to make world-class technology accessible.'],
+                ['year' => '2025', 'title' => 'First 50 Projects Shipped', 'desc' => 'Expanded to 20 engineers and earning trust.'],
+                ['year' => '2026', 'title' => 'AI Division Launched', 'desc' => 'Dedicated Agentic AI research team formed.'],
             ]
         ]]);
 
@@ -228,11 +228,11 @@ class PageSeeder extends Seeder
         \App\Models\PageSection::updateOrCreate(['page_id' => $process->id, 'section_key' => 'hero'], ['sort_order' => 1, 'content' => [
             'badge' => 'How We Work',
             'title' => 'Our Standard <span class="grad">Work Process</span>',
-            'subtitle' => 'A proven methodology refined across 1200+ projects — combining strategy, agile execution, and relentless quality control.',
+            'subtitle' => 'A proven methodology refined across 300+ projects — combining strategy, agile execution, and relentless quality control.',
             'stats' => [
                 ['num' => '5', 'label' => 'Clear Steps'],
                 ['num' => '98%', 'label' => 'On-Time Delivery'],
-                ['num' => '1200+', 'label' => 'Projects Done'],
+                ['num' => '300+', 'label' => 'Projects Delivered'],
                 ['num' => '100%', 'label' => 'Transparency'],
             ]
         ]]);
@@ -292,7 +292,7 @@ class PageSeeder extends Seeder
             'stats' => [
                 ['num' => '6+', 'label' => 'Flagship Products'],
                 ['num' => '12+', 'label' => 'Industries Served'],
-                ['num' => '1200+', 'label' => 'Digital Experiences'],
+                ['num' => '300+', 'label' => 'Projects Delivered'],
                 ['num' => '3', 'label' => 'Years Building'],
             ]
         ]]);
@@ -303,7 +303,7 @@ class PageSeeder extends Seeder
             'subtitle' => 'Measurable outcomes across every project we\'ve delivered.',
             'items' => [
                 ['icon' => '🚀', 'num' => '6+', 'label' => 'Live Products Shipped'],
-                ['icon' => '🌍', 'num' => '15+', 'label' => 'Countries Reached'],
+                ['icon' => '🌍', 'num' => '20+', 'label' => 'Countries Served'],
                 ['icon' => '⚡', 'num' => '99.9%', 'label' => 'Average Uptime SLA'],
                 ['icon' => '⭐', 'num' => '100%', 'label' => 'Client Satisfaction Rate'],
             ]
@@ -378,8 +378,8 @@ class PageSeeder extends Seeder
         \App\Models\PageSection::updateOrCreate(['page_id' => $contact->id, 'section_key' => 'contact_items'], ['sort_order' => 3, 'content' => [
             'items' => [
                 ['title' => 'Our Office', 'value' => 'DHA 1, Islamabad, Pakistan', 'link' => '#'],
-                ['title' => 'Email Us', 'value' => 'hello@hexafume.com', 'link' => 'mailto:hello@hexafume.com'],
-                ['title' => 'Call Us 24/7', 'value' => '+92 315 088 4024', 'link' => 'tel:+923150884024'],
+                ['title' => 'Email Us', 'value' => 'info@hexafume.com', 'link' => 'mailto:info@hexafume.com'],
+                ['title' => 'Call Us 24/7', 'value' => '+92 344 9121053', 'link' => 'tel:+923449121053'],
                 ['title' => 'Business Hours', 'value' => 'Mon–Fri, 9:00 AM – 6:00 PM PKT', 'link' => '#'],
             ]
         ]]);
@@ -411,7 +411,7 @@ class PageSeeder extends Seeder
 
         \App\Models\PageSection::updateOrCreate(['page_id' => $contact->id, 'section_key' => 'offices'], ['sort_order' => 8, 'content' => [
             'items' => [
-                ['flag' => '🇵🇰', 'city' => 'Islamabad, Pakistan', 'details' => "DHA Phase 1, Islamabad\n+92 315 088 4024", 'status' => 'Headquarters — Open Now'],
+                ['flag' => '🇵🇰', 'city' => 'Islamabad, Pakistan', 'details' => "DHA Phase 1, Islamabad\n+92 344 9121053", 'status' => 'Headquarters — Open Now'],
                 ['flag' => '🇦🇪', 'city' => 'Dubai, UAE', 'details' => "Business Bay, Dubai\nGCC Operations Hub", 'status' => 'Regional Office — Active'],
                 ['flag' => '🌐', 'city' => 'Remote — Global', 'details' => "Team distributed across\nEurope, North America & GCC", 'status' => 'Always Online'],
             ]

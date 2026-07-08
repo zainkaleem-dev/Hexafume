@@ -217,7 +217,7 @@
           <div class="form-row">
             <div class="form-group">
               <label>Email Address <span class="required">*</span></label>
-              <input type="email" id="email" name="email" placeholder="e.g. hello@hexafume.com"/>
+              <input type="email" id="email" name="email" placeholder="e.g. info@hexafume.com"/>
             </div>
             <div class="form-group">
               <label>LinkedIn Profile URL</label>
@@ -669,17 +669,27 @@ function previewImage(input, areaId) {
   const area = document.getElementById(areaId);
   const file = input.files[0];
   if (!file) return;
-  const reader = new FileReader();
-  reader.onload = e => {
-    area.innerHTML = `
-      <img src="${e.target.result}" class="preview-img" alt="Preview"/>
-      <div class="preview-overlay"><span>Click to change</span></div>
-      <input type="file" name="${input.name}" class="upload-input" accept="image/*" onchange="previewImage(this,'${areaId}')"/>
+  window.selectedTeamPhotoFile = file;
+  const objectUrl = URL.createObjectURL(file);
+  area.innerHTML = `
+    <img src="${objectUrl}" class="preview-img" alt="Preview" onload="URL.revokeObjectURL(this.src)"/>
+    <div class="preview-overlay"><span>Click to change</span></div>
+    <input type="file" name="${input.name}" class="upload-input" accept="image/*" onchange="previewImage(this,'${areaId}')"/>
+  `;
+  area.classList.add('has-image');
+
+  const previewAvatar = document.getElementById('previewAvatar');
+  const previewInitials = document.getElementById('previewInitials');
+  const initials = document.getElementById('initials')?.value || '?';
+  if (previewAvatar) {
+    previewAvatar.innerHTML = `
+      <img src="${objectUrl}" alt="Preview photo" class="preview-avatar-img" onload="URL.revokeObjectURL(this.src)"/>
+      <span id="previewInitials">${initials}</span>
     `;
-    area.classList.add('has-image');
-    updateProgress();
-  };
-  reader.readAsDataURL(file);
+  }
+  if (previewInitials) previewInitials.textContent = initials;
+
+  updateProgress();
 }
 
 // ===== CHAR COUNTER =====
@@ -788,7 +798,7 @@ async function publishMember() {
     formData.append('bio',        document.getElementById('memberBio').value);
 
     // Photo
-    const photoFile = document.querySelector('#photoUploadArea input[type="file"]')?.files[0];
+    const photoFile = window.selectedTeamPhotoFile || document.querySelector('#photoUploadArea input[type="file"]')?.files[0];
     if (photoFile) formData.append('photo', photoFile);
 
     // Social
@@ -916,12 +926,20 @@ if (isEditMode && editingMember) {
 
   if (editingMember.photo_url) {
     const area = document.getElementById('photoUploadArea');
+    window.selectedTeamPhotoFile = null;
     area.innerHTML = `
       <img src="${editingMember.photo_url}" class="preview-img" alt="Preview"/>
       <div class="preview-overlay"><span>Click to change</span></div>
       <input type="file" id="photoInput" name="photo" class="upload-input" accept="image/*" onchange="previewImage(this,'photoUploadArea')"/>
     `;
     area.classList.add('has-image');
+    const previewAvatar = document.getElementById('previewAvatar');
+    if (previewAvatar) {
+      previewAvatar.innerHTML = `
+        <img src="${editingMember.photo_url}" alt="Preview photo" class="preview-avatar-img"/>
+        <span id="previewInitials" style="display:none;">${editingMember.initials || '?'}</span>
+      `;
+    }
   }
 
   document.getElementById('previewName').textContent = getFullName() || 'Name';

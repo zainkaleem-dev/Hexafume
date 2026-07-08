@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\PageController;
@@ -36,32 +37,42 @@ Route::get("/project/{slug}", [ProjectController::class, "show"])->name("project
 |--------------------------------------------------------------------------
 */
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/login', function () {
-        return view('admin.login');
-    })->name('login');
+    Route::middleware('guest')->group(function () {
+        Route::get('/login', [AdminAuthController::class, 'showLogin'])->name('login');
+        Route::post('/login', [AdminAuthController::class, 'login'])->name('login.submit');
+        Route::get('/forgot-password', [AdminAuthController::class, 'showForgotPassword'])->name('password.request');
+        Route::post('/forgot-password', [AdminAuthController::class, 'sendResetLink'])->name('password.email');
+        Route::get('/reset-password/{token}', [AdminAuthController::class, 'showResetPassword'])->name('password.reset');
+        Route::post('/reset-password', [AdminAuthController::class, 'resetPassword'])->name('password.update');
+    });
 
-    Route::get('/', [ProjectController::class, 'adminDashboard'])->name('dashboard');
+    Route::middleware('auth')->group(function () {
+        Route::get('/', [ProjectController::class, 'adminDashboard'])->name('dashboard');
+        Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
 
-    Route::get('/projects', [ProjectController::class, 'adminIndex'])->name('projects.index');
+        Route::get('/projects', [ProjectController::class, 'adminIndex'])->name('projects.index');
+        Route::get('/projects/create', [ProjectController::class, 'adminCreate'])->name('projects.create');
+        Route::get('/projects/{project}/edit', [ProjectController::class, 'adminEdit'])->name('projects.edit');
+        Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
+        Route::put('/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
+        Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
 
-    Route::get('/projects/create', [ProjectController::class, 'adminCreate'])->name('projects.create');
-    Route::get('/projects/{project}/edit', [ProjectController::class, 'adminEdit'])->name('projects.edit');
-    Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
-    Route::get('/team-members/create', [TeamMemberController::class, 'create'])->name('team-members.create');
-    Route::get('/team-members/{teamMember}/edit', [TeamMemberController::class, 'edit'])->name('team-members.edit');
-    Route::get('/team', [TeamMemberController::class, 'index'])->name('team.index');
-    Route::post('/team', [TeamMemberController::class, 'store'])->name('team.store');
-    Route::put('/team/{teamMember}', [TeamMemberController::class, 'update'])->name('team.update');
-    Route::delete('/team/{teamMember}', [TeamMemberController::class, 'destroy'])->name('team.destroy');
+        Route::get('/team-members/create', [TeamMemberController::class, 'create'])->name('team-members.create');
+        Route::get('/team-members/{teamMember}/edit', [TeamMemberController::class, 'edit'])->name('team-members.edit');
+        Route::get('/team', [TeamMemberController::class, 'index'])->name('team.index');
+        Route::post('/team', [TeamMemberController::class, 'store'])->name('team.store');
+        Route::put('/team/{teamMember}', [TeamMemberController::class, 'update'])->name('team.update');
+        Route::delete('/team/{teamMember}', [TeamMemberController::class, 'destroy'])->name('team.destroy');
 
-    Route::get('/messages', [EmailController::class, 'adminIndex'])->name('messages.index');
-    Route::get('/messages/{email}', [EmailController::class, 'adminShow'])->name('messages.show');
-    Route::post('/messages/{email}/reply', [EmailController::class, 'adminReply'])->name('messages.reply');
-    Route::delete('/messages/{email}', [EmailController::class, 'adminDestroy'])->name('messages.destroy');
+        Route::get('/messages', [EmailController::class, 'adminIndex'])->name('messages.index');
+        Route::get('/messages/{email}', [EmailController::class, 'adminShow'])->name('messages.show');
+        Route::post('/messages/{email}/reply', [EmailController::class, 'adminReply'])->name('messages.reply');
+        Route::delete('/messages/{email}', [EmailController::class, 'adminDestroy'])->name('messages.destroy');
 
-    Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
-    Route::get('/pages/{slug}/edit', [PageController::class, 'edit'])->name('pages.edit');
-    Route::match(['PUT', 'POST'], '/pages/{slug}', [PageController::class, 'update'])->name('pages.update');
+        Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
+        Route::get('/pages/{slug}/edit', [PageController::class, 'edit'])->name('pages.edit');
+        Route::match(['PUT', 'POST'], '/pages/{slug}', [PageController::class, 'update'])->name('pages.update');
+    });
 });
 
 
@@ -100,5 +111,3 @@ Route::delete("/email/{email}", [EmailController::class, "destroy"])->name(
 | Project Management
 |--------------------------------------------------------------------------
 */
-Route::post("/admin/projects", [ProjectController::class, "store"])->name("admin.projects.store");
-Route::put("/admin/projects/{project}", [ProjectController::class, "update"])->name("admin.projects.update");

@@ -10,7 +10,7 @@
     "image": "{{ asset('images/hexafume/hexafume-original.png') }}",
     "@@id": "https://hexafume.com/",
     "url": "https://hexafume.com/",
-    "telephone": "+923150884024",
+    "telephone": "+923449121053",
     "address": {
       "@@type": "PostalAddress",
       "streetAddress": "DHA 1",
@@ -202,7 +202,7 @@
         <div class="about-card"><span class="icon">🚀</span><h3>Innovation</h3><p>Cutting Edge Tech</p></div>
         <div class="about-card"><span class="icon">⚡</span><h3>Performance</h3><p>Optimized Solutions</p></div>
         <div class="about-card"><span class="icon">🔒</span><h3>Security</h3><p>Enterprise Grade</p></div>
-        <div class="about-card"><span class="icon">🌍</span><h3>Global Reach</h3><p>15+ Countries</p></div>
+        <div class="about-card"><span class="icon">🌍</span><h3>Global Reach</h3><p>20+ Countries</p></div>
       @endif
     </div>
 </section>
@@ -335,7 +335,7 @@
     <p>{{ $cta['subtitle'] ?? "Let's transform your vision into a digital masterpiece. Get in touch and let's build something extraordinary together." }}</p>
     <div class="cta-btns">
       <a href="#contact" class="btn-p">{{ $cta['btn1_text'] ?? 'Start Your Project' }} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="tel:{{ str_replace(' ', '', $contactHeader['phone'] ?? '+923150884024') }}" class="btn-s">📞 {{ $cta['btn2_text'] ?? 'Call Us Now' }}</a>
+      <a href="tel:{{ str_replace(' ', '', $contactHeader['phone'] ?? '+923449121053') }}" class="btn-s">📞 {{ $cta['btn2_text'] ?? 'Call Us Now' }}</a>
     </div>
   </div>
 </section>
@@ -355,11 +355,11 @@
           </div>
           <div class="c-item">
             <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div><h4>{{ $contactHeader['email_label'] ?? 'Email Us' }}</h4><a href="mailto:{{ $contactHeader['email'] ?? 'support@hexafume.com' }}">{{ $contactHeader['email'] ?? 'support@hexafume.com' }}</a></div>
+            <div><h4>{{ $contactHeader['email_label'] ?? 'Email Us' }}</h4><a href="mailto:{{ $contactHeader['email'] ?? 'info@hexafume.com' }}">{{ $contactHeader['email'] ?? 'info@hexafume.com' }}</a></div>
           </div>
           <div class="c-item">
             <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-            <div><h4>{{ $contactHeader['phone_label'] ?? 'Call Us 24/7' }}</h4><a href="tel:{{ str_replace(' ', '', $contactHeader['phone'] ?? '+923150884024') }}">{{ $contactHeader['phone'] ?? '+92 315 088 4024' }}</a></div>
+            <div><h4>{{ $contactHeader['phone_label'] ?? 'Call Us 24/7' }}</h4><a href="tel:{{ str_replace(' ', '', $contactHeader['phone'] ?? '+923449121053') }}">{{ $contactHeader['phone'] ?? '+92 344 9121053' }}</a></div>
           </div>
         </div>
         <div class="socials">

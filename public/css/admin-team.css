@@ -116,7 +116,18 @@
   overflow: hidden;
 }
 .member-avatar.has-photo { background: var(--surface2); }
-.member-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.member-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.avatar-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+}
 .member-status {
   position: absolute; top: .7rem; right: .7rem;
   font-size: .6rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;

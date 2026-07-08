@@ -37,7 +37,7 @@
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ route('home') }}">Home</a><span class="breadcrumb-sep">›</span><span>Process</span></nav>
     <div class="section-badge" style="animation:fadeUp .7s .15s ease both;"><span class="dot"></span>{{ $hero['badge'] ?? 'How We Work' }}</div>
     <h1>{!! $hero['title'] ?? 'Our Standard <span class="grad">Work Process</span>' !!}</h1>
-    <p class="hero-sub">{{ $hero['subtitle'] ?? 'A proven methodology refined across 1200+ projects — combining strategy, agile execution, and relentless quality control.' }}</p>
+    <p class="hero-sub">{{ $hero['subtitle'] ?? 'A proven methodology refined across 300+ projects — combining strategy, agile execution, and relentless quality control.' }}</p>
     <div class="hero-quick-stats">
       @if(isset($hero['stats']))
         @foreach($hero['stats'] as $index => $stat)

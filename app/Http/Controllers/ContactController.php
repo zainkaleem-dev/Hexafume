@@ -59,7 +59,7 @@ class ContactController extends Controller
             "message" =>
                 $status === "sent"
                     ? "Thank you, {$validated["name"]}! Your message has been sent. We'll be in touch shortly."
-                    : "There was an issue sending your message. Please try again or reach us at support@hexafume.com.",
+                    : "There was an issue sending your message. Please try again or reach us at info@hexafume.com.",
         ]);
     }
 

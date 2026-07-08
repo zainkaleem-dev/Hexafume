@@ -222,7 +222,7 @@
     <p>{{ $cta['subtitle'] ?? "Let's transform your vision into a digital masterpiece. Get in touch and let's build something extraordinary together." }}</p>
     <div class="cta-btns">
       <a href="{{ route('contact') }}" class="btn-p">{{ $cta['btn1_text'] ?? 'Start Your Project' }} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="tel:{{ str_replace(' ', '', $contactHeader['phone'] ?? '+923150884024') }}" class="btn-s">📞 {{ $cta['btn2_text'] ?? 'Call Us Now' }}</a>
+      <a href="tel:{{ str_replace(' ', '', $contactHeader['phone'] ?? '+923449121053') }}" class="btn-s">📞 {{ $cta['btn2_text'] ?? 'Call Us Now' }}</a>
     </div>
   </div>
 </section>
@@ -232,7 +232,7 @@
 <script>
 // STATS COUNT UP
 (function(){
-  const targets={s1:1200,s2:50,s3:15,s4:3};
+  const targets={s1:300,s2:35,s3:20,s4:3};
   const suffixes={s1:'+',s2:'+',s3:'+',s4:''};
   const dur=2800;const start=performance.now();
   (function step(now){

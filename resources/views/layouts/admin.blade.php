@@ -181,14 +181,23 @@ button { cursor: pointer; font-family: var(--font-body); }
 
 <script>
 function logout() {
-  sessionStorage.removeItem('hx_admin');
-  window.location.href = "{{ route('admin.login') }}";
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = "{{ route('admin.logout') }}";
+
+  const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+  if (token) {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = '_token';
+    input.value = token;
+    form.appendChild(input);
+  }
+
+  document.body.appendChild(form);
+  form.submit();
 }
 // Check auth
-if (!sessionStorage.getItem('hx_admin') && window.location.pathname !== "{{ route('admin.login') }}") {
-  // window.location.href = "{{ route('admin.login') }}";
-}
-
 (function () {
   const notifBtn = document.getElementById('adminNotifBtn');
   const notifDropdown = document.getElementById('adminNotifDropdown');

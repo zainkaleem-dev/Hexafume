@@ -651,6 +651,12 @@ footer{
   font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-weight:500;font-size:1.1rem;
   letter-spacing:.06em;margin-bottom:.3rem;
 }
+.footer-logo-img{
+  height:70px;
+  width:auto;
+  object-fit:contain;
+  filter:brightness(1.1);
+}
 .footer-brand-name .dot{color:var(--blue-b);}
 
 /* ANIMATIONS */

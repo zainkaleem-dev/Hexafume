@@ -90,7 +90,12 @@ button { cursor: pointer; font-family: var(--font-body); }
   transition: transform .3s ease;
 }
 .sidebar-logo { display: flex; align-items: center; gap: .75rem; padding: 1.4rem 1.5rem; border-bottom: 1px solid var(--border); }
-.sidebar-logo-img { height: 36px; width: auto; object-fit: contain; }
+.sidebar-logo-img {
+  height: 70px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+}
 .sidebar-logo-img--white { display: block; filter: brightness(1.1); }
 .sidebar-logo-img--original { display: none; }
 :root[data-admin-theme="fresh"] .sidebar-logo-img--white { display: none; }

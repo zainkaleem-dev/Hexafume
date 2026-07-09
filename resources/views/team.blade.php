@@ -47,40 +47,8 @@
     </div>
     <h1>{!! $hero['title'] ?? 'The Minds Behind<br>the <span class="grad">Magic</span>' !!}</h1>
     <p class="hero-sub">{{ $hero['subtitle'] ?? 'We are a team of engineers, designers, strategists, and dreamers united by one mission — turning bold ideas into scalable digital realities.' }}</p>
-    <div class="hero-stats-row">
-      <div class="hstat">
-        <div class="hstat-num">{{ $teamStats['members'] ?? 0 }}<span class="plus">+</span></div>
-        <div class="hstat-lbl">Team Members</div>
-      </div>
-      <div class="hstat-div"></div>
-      <div class="hstat">
-        <div class="hstat-num">{{ $teamStats['disciplines'] ?? 0 }}<span class="plus">+</span></div>
-        <div class="hstat-lbl">Disciplines</div>
-      </div>
-      <div class="hstat-div"></div>
-      <div class="hstat">
-        <div class="hstat-num">{{ $teamStats['countries'] ?? 0 }}<span class="plus"></span></div>
-        <div class="hstat-lbl">Countries</div>
-      </div>
-      <div class="hstat-div"></div>
-      <div class="hstat">
-        <div class="hstat-num">{{ $teamStats['projects'] ?? 0 }}<span class="plus">+</span></div>
-        <div class="hstat-lbl">Projects Shipped</div>
-      </div>
-    </div>
   </div>
 </section>
-
-<!-- FILTER BAR -->
-<div class="filter-section">
-  <div class="filter-group" id="filterGroup">
-    <button class="filter-btn active" data-dept="all">All</button>
-    @foreach(($teamDepartments ?? collect()) as $department)
-      <button class="filter-btn" data-dept="{{ $department['key'] }}">{{ $department['label'] }}</button>
-    @endforeach
-  </div>
-  <span class="filter-count" id="filterCount">Showing {{ $teamStats['members'] ?? 0 }} members</span>
-</div>
 
 <!-- TEAM GRID -->
 <section class="team-section" id="teamSection">
@@ -111,105 +79,65 @@
 const team = @json($teamMembersPayload ?? []);
 
 // RENDER FUNCTION
-function renderTeam(filter = 'all') {
+function renderTeam() {
   const container = document.getElementById('teamSection');
   if(!container) return;
   container.innerHTML = '';
 
-  const filtered = filter === 'all' ? team : team.filter(m => m.dept === filter);
-  if (filtered.length === 0) {
+  if (team.length === 0) {
     container.innerHTML = `
-      <div class="dept-block reveal visible">
-        <div class="dept-label">
-          <h2>Team</h2>
-          <span class="dept-count">0</span>
-          <div class="dept-line"></div>
-        </div>
-        <div class="team-grid">
-          <div class="member-card" style="grid-column:1/-1; text-align:center; padding:2rem;">
-            <div class="member-body">
-              <div class="member-name">No team members available</div>
-              <p class="member-bio">Please check back soon.</p>
-            </div>
+      <div class="team-grid">
+        <div class="member-card" style="grid-column:1/-1; text-align:center; padding:2rem;">
+          <div class="member-body">
+            <div class="member-name">No team members available</div>
+            <p class="member-bio">Please check back soon.</p>
           </div>
         </div>
       </div>
     `;
-    document.getElementById('filterCount').textContent = `Showing 0 members`;
     return;
   }
-  
-  // Group by department for visual blocks
-  const depts = [...new Set(filtered.map(m => m.dept))];
-  
-  depts.forEach(dept => {
-    const deptMembers = filtered.filter(m => m.dept === dept);
-    const deptLabel = deptMembers[0].deptLabel;
-    
-    const block = document.createElement('div');
-    block.className = 'dept-block reveal';
-    block.innerHTML = `
-      <div class="dept-label">
-        <h2>${deptLabel}</h2>
-        <span class="dept-count">${deptMembers.length}</span>
-        <div class="dept-line"></div>
+
+  const grid = document.createElement('div');
+  grid.className = 'team-grid';
+
+  team.forEach((m, idx) => {
+    const card = document.createElement('a');
+    card.href = m.profile;
+    card.className = 'member-card reveal';
+    card.style.transitionDelay = `${idx * 80}ms`;
+
+    card.innerHTML = `
+      <div class="member-photo-wrap">
+        ${m.photo
+          ? `<img src="${m.photo}" alt="${m.name}" loading="lazy">`
+          : `<div class="member-avatar-placeholder"><div class="avatar-initials">${m.initials}</div></div>`
+        }
+        <div class="member-dept-badge">${m.deptLabel}</div>
+        <div class="member-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
       </div>
-      <div class="team-grid"></div>
+      <div class="member-body">
+        <div class="member-name">${m.name}</div>
+        <div class="member-title">${m.title}</div>
+        <p class="member-bio">${m.bio}</p>
+        <div class="member-skills">
+          ${m.skills.slice(0,3).map(s => `<span class="skill-tag">${s}</span>`).join('')}
+        </div>
+        <div class="member-socials">
+          <div class="member-social"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div class="member-exp">${m.exp}</div>
+        </div>
+      </div>
     `;
-    
-    const grid = block.querySelector('.team-grid');
-    deptMembers.forEach((m, idx) => {
-      const card = document.createElement('a');
-      card.href = m.profile;
-      card.className = 'member-card reveal';
-      card.style.transitionDelay = `${idx * 80}ms`;
-      
-      card.innerHTML = `
-        <div class="member-photo-wrap">
-          ${m.photo 
-            ? `<img src="${m.photo}" alt="${m.name}" loading="lazy">` 
-            : `<div class="member-avatar-placeholder"><div class="avatar-initials">${m.initials}</div></div>`
-          }
-          <div class="member-dept-badge">${m.deptLabel}</div>
-          <div class="member-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
-        </div>
-        <div class="member-body">
-          <div class="member-name">${m.name}</div>
-          <div class="member-title">${m.title}</div>
-          <p class="member-bio">${m.bio}</p>
-          <div class="member-skills">
-            ${m.skills.slice(0,3).map(s => `<span class="skill-tag">${s}</span>`).join('')}
-          </div>
-          <div class="member-socials">
-            <div class="member-social"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div>
-            <div class="member-exp">${m.exp}</div>
-          </div>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-    
-    container.appendChild(block);
+    grid.appendChild(card);
   });
 
-  document.getElementById('filterCount').textContent = `Showing ${filtered.length} members`;
+  container.appendChild(grid);
   
   // Re-trigger observer
   setTimeout(() => {
     document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObs.observe(el));
   }, 100);
-}
-
-// FILTER LOGIC
-const filterGroup = document.getElementById('filterGroup');
-if (filterGroup) {
-  filterGroup.addEventListener('click', e => {
-    const btn = e.target.closest('.filter-btn');
-    if(!btn) return;
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderTeam(btn.dataset.dept);
-  });
 }
 
 // REVEAL OBSERVER

@@ -17,8 +17,8 @@ class TeamMemberController extends Controller
     {
         $members = TeamMember::query()
             ->where('show_on_team', true)
-            ->orderByDesc('is_featured')
-            ->orderBy('first_name')
+            ->orderBy('created_at')
+            ->orderBy('id')
             ->get();
 
         $teamMembersPayload = $members->map(function (TeamMember $member) {

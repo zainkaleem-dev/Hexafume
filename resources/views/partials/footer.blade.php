@@ -1,8 +1,9 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand footer-col">
-    <div class="footer-brand-name" style="height:70px !important;">
-      <img class="footer-logo-img" src="{{ asset('images/hexafume/hexafume-white.png') }}" alt="Hexafume" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/>
+    <div class="footer-brand-name" >
+      <img class="footer-logo-img" src="{{ asset('images/hexafume/hexafume-white.png') }}" alt="Hexafume"  style="height:70px !important;" 
+      onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/>
       <span style="display:none;">HEXA<span class="dot">FUME</span></span>
     </div>
     <p>We're in the business of providing strategic digital solutions. Since our inception, we've delivered 300+ projects that enable brands to connect globally.</p>

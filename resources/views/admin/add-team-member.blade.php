@@ -347,25 +347,7 @@
             <div class="step-item">
               <div class="step-dot" id="step4dot">4</div>
               <div>
-                <div class="step-name" id="step4name">Core Skills</div>
-              </div>
-            </div>
-            <div class="step-item">
-              <div class="step-dot" id="step5dot">5</div>
-              <div>
-                <div class="step-name" id="step5name">Qualifications</div>
-              </div>
-            </div>
-            <div class="step-item">
-              <div class="step-dot" id="step6dot">6</div>
-              <div>
-                <div class="step-name" id="step6name">Achievements</div>
-              </div>
-            </div>
-            <div class="step-item">
-              <div class="step-dot" id="step7dot">7</div>
-              <div>
-                <div class="step-name" id="step7name">SEO &amp; Meta</div>
+                <div class="step-name" id="step4name">SEO &amp; Meta</div>
               </div>
             </div>
           </div>

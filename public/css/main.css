@@ -653,6 +653,7 @@ footer{
 }
 .footer-logo-img{
   height:70px;
+  max-width:auto;
   width:auto;
   object-fit:contain;
   filter:brightness(1.1);

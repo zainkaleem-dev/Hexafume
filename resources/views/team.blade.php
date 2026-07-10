@@ -110,7 +110,7 @@ function renderTeam() {
     card.innerHTML = `
       <div class="member-photo-wrap">
         ${m.photo
-          ? `<img src="${m.photo}" alt="${m.name}" loading="lazy"${m.name === 'Danish Khan' ? ' style="object-fit:cover;object-position:center top;"' : ''}>`
+          ? `<img src="${m.photo}" alt="${m.name}" loading="lazy">`
           : `<div class="member-avatar-placeholder"><div class="avatar-initials">${m.initials}</div></div>`
         }
         <div class="member-dept-badge">${m.deptLabel}</div>

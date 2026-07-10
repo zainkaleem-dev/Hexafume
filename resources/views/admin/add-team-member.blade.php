@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+﻿@extends('layouts.admin')
 @php
   $isEditMode = isset($editingMember) && $editingMember;
   $editingMemberPayload = null;
@@ -239,128 +239,10 @@
         </div>
       </div>
 
-      <!-- ===== SECTION 4: CORE SKILLS ===== -->
-      <div class="form-section">
-        <div class="section-header" onclick="toggleSection(this)">
-          <div class="section-header-left">
-            <div class="section-icon">
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <div>
-              <div class="section-title">Core Skills</div>
-              <div class="section-subtitle">Primary skills shown on the profile page with bars</div>
-            </div>
-          </div>
-          <div class="section-toggle open"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
-        </div>
-        <div class="section-body">
+      
+      
 
-          <div class="tag-input-wrap" style="margin-bottom:1rem;">
-            <p class="field-hint" style="margin-bottom:.5rem; font-style:normal; color:var(--w60); font-size:.78rem;">Add up to 8 core skills. These are displayed with progress bars on the profile page.</p>
-            <div class="tag-input-row">
-              <input type="text" id="skillInput" placeholder="e.g. Product Strategy" onkeydown="if(event.key==='Enter'){event.preventDefault();addTag('skillInput','skillTags','skills');}"/>
-              <button type="button" class="tag-add-btn" onclick="addTag('skillInput','skillTags','skills')">+ Add Skill</button>
-            </div>
-            <div class="tags-display" id="skillTags"></div>
-            <input type="hidden" id="skillsHidden" name="skills"/>
-          </div>
-
-          <div class="skill-levels-note">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            Skills are displayed in order added. The first skill gets "Expert" level (95%), descending from there.
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ===== SECTION 5: QUALIFICATIONS & CERTIFICATIONS ===== -->
-      <div class="form-section">
-        <div class="section-header" onclick="toggleSection(this)">
-          <div class="section-header-left">
-            <div class="section-icon">
-              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            </div>
-            <div>
-              <div class="section-title">Qualifications &amp; Certifications</div>
-              <div class="section-subtitle">Degrees and professional certifications</div>
-            </div>
-          </div>
-          <div class="section-toggle open"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
-        </div>
-        <div class="section-body">
-
-          <p class="field-hint" style="font-style:normal; color:var(--w60); font-size:.78rem; margin-bottom:.9rem;">
-            Format degrees as <strong style="color:var(--w80);">Degree Name — Institution</strong> (e.g. <em>MBA — LUMS</em>). Certifications can be entered without a separator.
-          </p>
-
-          <div class="repeater" id="qualRepeater"></div>
-          <button type="button" class="add-item-btn" onclick="addQual()">
-            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            Add Qualification / Certification
-          </button>
-
-        </div>
-      </div>
-
-      <!-- ===== SECTION 6: ACHIEVEMENTS (BY THE NUMBERS) ===== -->
-      <div class="form-section">
-        <div class="section-header" onclick="toggleSection(this)">
-          <div class="section-header-left">
-            <div class="section-icon">
-              <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-            </div>
-            <div>
-              <div class="section-title">Achievements — By the Numbers</div>
-              <div class="section-subtitle">Stat cards shown below qualifications</div>
-            </div>
-          </div>
-          <div class="section-toggle open"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
-        </div>
-        <div class="section-body">
-
-          <p class="field-hint" style="font-style:normal; color:var(--w60); font-size:.78rem; margin-bottom:.9rem;">
-            Each stat card has a bold number/value and a short label (e.g. <em>50+</em> / <em>Projects Shipped</em>).
-          </p>
-
-          <div class="repeater" id="achieveRepeater"></div>
-          <button type="button" class="add-item-btn" onclick="addAchievement()">
-            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            Add Achievement Stat
-          </button>
-
-        </div>
-      </div>
-
-      <!-- ===== SECTION 7: EXPERTISE TAGS ===== -->
-      <div class="form-section">
-        <div class="section-header" onclick="toggleSection(this)">
-          <div class="section-header-left">
-            <div class="section-icon">
-              <svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-            </div>
-            <div>
-              <div class="section-title">Full Expertise Tags</div>
-              <div class="section-subtitle">Additional skill/expertise tags shown at the bottom of the profile</div>
-            </div>
-          </div>
-          <div class="section-toggle open"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
-        </div>
-        <div class="section-body">
-
-          <div class="tag-input-wrap">
-            <p class="field-hint" style="font-style:normal; color:var(--w60); font-size:.78rem; margin-bottom:.6rem;">
-              These supplement the core skills. Core skills are automatically included — add any extra tags here.
-            </p>
-            <div class="tag-input-row">
-              <input type="text" id="expertiseInput" placeholder="e.g. Agile Methodologies" onkeydown="if(event.key==='Enter'){event.preventDefault();addTag('expertiseInput','expertiseTags','expertise');}"/>
-              <button type="button" class="tag-add-btn" onclick="addTag('expertiseInput','expertiseTags','expertise')">+ Add Tag</button>
-            </div>
-            <div class="tags-display" id="expertiseTags"></div>
-            <input type="hidden" id="expertiseHidden" name="expertise_tags"/>
-          </div>
-
-        </div>
-      </div>
+      
 
       <!-- ===== SECTION 8: SEO ===== -->
       <div class="form-section">

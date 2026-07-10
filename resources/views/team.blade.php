@@ -103,7 +103,7 @@ function renderTeam() {
 
   team.forEach((m, idx) => {
     const card = document.createElement('a');
-    card.href = m.profile;
+    card.href = m.profil ;
     card.className = 'member-card reveal';
     card.style.transitionDelay = `${idx * 80}ms`;
 

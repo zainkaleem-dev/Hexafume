@@ -386,10 +386,8 @@ class PageSeeder extends Seeder
 
         \App\Models\PageSection::updateOrCreate(['page_id' => $contact->id, 'section_key' => 'socials'], ['sort_order' => 4, 'content' => [
             'items' => [
-                ['platform' => 'Facebook', 'link' => 'https://facebook.com/hexafume'],
-                ['platform' => 'Twitter', 'link' => 'https://twitter.com/hexafume'],
-                ['platform' => 'LinkedIn', 'link' => 'https://linkedin.com/company/hexafume'],
-                ['platform' => 'Instagram', 'link' => '#'],
+                ['platform' => 'Instagram', 'link' => 'https://www.instagram.com/hexafume?igsh=MWplZXF2bGkzcG00eA=='],
+                ['platform' => 'LinkedIn', 'link' => 'https://www.linkedin.com/company/hexafume'],
             ]
         ]]);
 

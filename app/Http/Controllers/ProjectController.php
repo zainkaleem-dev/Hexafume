@@ -102,7 +102,10 @@ class ProjectController extends Controller
         $page = \App\Models\Page::where('slug', 'home')->first();
         $services = \App\Models\Service::orderBy('order_index')->get();
         $process_steps = \App\Models\ProcessStep::orderBy('order_index')->get();
-        $testimonials = \App\Models\Testimonial::orderBy('order_index')->get();
+        $testimonials = \App\Models\Testimonial::query()
+            ->where('is_active', true)
+            ->orderBy('order_index')
+            ->get();
 
         return view('home', compact('featuredProjects', 'page', 'services', 'process_steps', 'testimonials'));
     }
@@ -179,7 +182,10 @@ class ProjectController extends Controller
         $categories = $projects->pluck('type')->unique()->filter()->values();
         
         $page = \App\Models\Page::where('slug', 'work')->first();
-        $testimonials = \App\Models\Testimonial::orderBy('order_index')->get();
+        $testimonials = \App\Models\Testimonial::query()
+            ->where('is_active', true)
+            ->orderBy('order_index')
+            ->get();
         $technologies = \App\Models\Technology::orderBy('order_index')->get()->groupBy('category');
 
         return view('work', compact('projects', 'categories', 'page', 'testimonials', 'technologies'));

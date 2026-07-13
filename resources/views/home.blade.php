@@ -313,12 +313,24 @@
     @foreach($testimonials as $i => $t)
       <div class="testi-card reveal" style="transition-delay: {{ $i * 120 }}ms;">
         <div class="stars">★★★★★</div>
-        <p class="testi-q">"{{ $t->quote }}"</p>
+        <div class="testi-quote-wrap">
+          <p class="testi-q" data-full-quote="{{ e($t->quote) }}">"{{ $t->quote }}"</p>
+          <button type="button" class="testi-toggle" aria-expanded="false" hidden>Read More</button>
+        </div>
         <div class="testi-author">
-          <div class="testi-avatar">{{ $t->initials }}</div>
+          <div class="testi-avatar">
+            @if($t->photo_url)
+              <img src="{{ $t->photo_url }}" alt="{{ $t->client_name ?? $t->company }}" loading="lazy">
+            @else
+              {{ $t->initials }}
+            @endif
+          </div>
           <div>
-            <div class="testi-name">{{ $t->company }}</div>
-            <div class="testi-role">{{ $t->role }}</div>
+            <div class="testi-name">{{ $t->client_name ?? $t->company }}</div>
+            @if($t->location)
+              <div class="testi-location">{{ $t->location }}</div>
+            @endif
+            <div class="testi-role">{{ $t->company }} • {{ $t->role }}</div>
           </div>
         </div>
       </div>
@@ -669,6 +681,55 @@
 // ===== PROCESS (Now handled by Server Side Blade Template) =====
 
 // ===== TESTIMONIALS (Now handled by Server Side Blade Template) =====
+
+(function initTestimonialToggles() {
+  const cards = document.querySelectorAll('.testi-card');
+
+  function measureTruncation(card) {
+    const quote = card.querySelector('.testi-q');
+    if (!quote) return false;
+
+    const wasExpanded = card.classList.contains('expanded');
+    card.classList.remove('expanded');
+    const isTruncated = quote.scrollHeight > quote.clientHeight + 1;
+    if (wasExpanded) card.classList.add('expanded');
+    return isTruncated;
+  }
+
+  function refreshCard(card) {
+    const toggle = card.querySelector('.testi-toggle');
+    if (!toggle) return;
+
+    const isExpanded = card.classList.contains('expanded');
+    const isTruncated = card.dataset.truncated === '1';
+
+    toggle.hidden = !isTruncated;
+    toggle.textContent = isExpanded ? 'Read Less' : 'Read More';
+    toggle.setAttribute('aria-expanded', String(isExpanded));
+  }
+
+  cards.forEach(card => {
+    const toggle = card.querySelector('.testi-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', () => {
+      card.classList.toggle('expanded');
+      refreshCard(card);
+    });
+  });
+
+  const run = () => {
+    cards.forEach(card => {
+      card.dataset.truncated = measureTruncation(card) ? '1' : '0';
+      if (!card.classList.contains('expanded')) {
+        refreshCard(card);
+      } else {
+        refreshCard(card);
+      }
+    });
+  };
+  window.addEventListener('load', run, { once: true });
+  window.addEventListener('resize', () => requestAnimationFrame(run));
+})();
 
 // ===== FORM SUBMIT =====
 const contactForm = document.getElementById('contactForm');

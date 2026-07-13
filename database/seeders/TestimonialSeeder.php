@@ -15,6 +15,8 @@ class TestimonialSeeder extends Seeder
                 'initials' => 'AP',
                 'company' => 'Arete Properties',
                 'role' => 'Real Estate',
+                'client_name' => 'Arete Properties',
+                'location' => 'United States',
             ]
         ];
 

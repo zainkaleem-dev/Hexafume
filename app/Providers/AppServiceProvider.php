@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Project;
 use App\Models\TeamMember;
+use App\Models\Testimonial;
 use App\Models\SentEmail;
 use App\Models\AdminNotification;
 use Illuminate\Support\Facades\Schema;
@@ -30,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer('partials.admin_sidebar', function ($view) {
             $projectCount = 0;
             $teamCount = 0;
+            $testimonialCount = 0;
             $messageCount = 0;
 
             if (Schema::hasTable('projects')) {
@@ -38,6 +40,9 @@ class AppServiceProvider extends ServiceProvider
             if (Schema::hasTable('team_members')) {
                 $teamCount = TeamMember::count();
             }
+            if (Schema::hasTable('testimonials')) {
+                $testimonialCount = Testimonial::count();
+            }
             if (Schema::hasTable('sent_emails')) {
                 $messageCount = SentEmail::count();
             }
@@ -45,6 +50,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with([
                 'adminProjectCount' => $projectCount,
                 'adminTeamCount' => $teamCount,
+                'adminTestimonialCount' => $testimonialCount,
                 'adminMessageCount' => $messageCount,
             ]);
         });

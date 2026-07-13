@@ -8,6 +8,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\SystemToolsController;
+use App\Http\Controllers\Admin\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/team', [TeamMemberController::class, 'store'])->name('team.store');
         Route::put('/team/{teamMember}', [TeamMemberController::class, 'update'])->name('team.update');
         Route::delete('/team/{teamMember}', [TeamMemberController::class, 'destroy'])->name('team.destroy');
+
+        Route::get('/testimonials', [TestimonialController::class, 'index'])->name('testimonials.index');
+        Route::get('/testimonials/create', [TestimonialController::class, 'create'])->name('testimonials.create');
+        Route::get('/testimonials/{testimonial}/edit', [TestimonialController::class, 'edit'])->name('testimonials.edit');
+        Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');
+        Route::put('/testimonials/{testimonial}', [TestimonialController::class, 'update'])->name('testimonials.update');
+        Route::delete('/testimonials/{testimonial}', [TestimonialController::class, 'destroy'])->name('testimonials.destroy');
 
         Route::get('/messages', [EmailController::class, 'adminIndex'])->name('messages.index');
         Route::get('/messages/{email}', [EmailController::class, 'adminShow'])->name('messages.show');

@@ -320,7 +320,14 @@
         <div class="testi-author">
           <div class="testi-avatar">
             @if($t->photo_url)
-              <img src="{{ $t->photo_url }}" alt="{{ $t->client_name ?? $t->company }}" loading="lazy">
+              <img
+                src="{{ $t->photo_url }}"
+                alt="{{ $t->client_name ?? $t->company }}"
+                loading="lazy"
+                width="38"
+                height="38"
+                style="width:38px;height:38px;max-width:38px;max-height:38px;object-fit:cover;object-position:center 18%;display:block;"
+              >
             @else
               {{ $t->initials }}
             @endif

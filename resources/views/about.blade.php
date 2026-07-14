@@ -188,12 +188,24 @@
         @endphp
         <div class="avatar-row">
           @foreach($avatarFirstRow as $member)
-            <div class="avatar-bubble" title="{{ $member['name'] }}">{{ $member['initials'] }}</div>
+            <div class="avatar-bubble {{ !empty($member['photo']) ? 'has-photo' : '' }}" title="{{ $member['name'] }}">
+              @if(!empty($member['photo']))
+                <img src="{{ $member['photo'] }}" alt="{{ $member['name'] }}" loading="lazy">
+              @else
+                {{ $member['initials'] }}
+              @endif
+            </div>
           @endforeach
         </div>
         <div class="avatar-row">
           @foreach($avatarSecondRow as $member)
-            <div class="avatar-bubble" title="{{ $member['name'] }}">{{ $member['initials'] }}</div>
+            <div class="avatar-bubble {{ !empty($member['photo']) ? 'has-photo' : '' }}" title="{{ $member['name'] }}">
+              @if(!empty($member['photo']))
+                <img src="{{ $member['photo'] }}" alt="{{ $member['name'] }}" loading="lazy">
+              @else
+                {{ $member['initials'] }}
+              @endif
+            </div>
           @endforeach
           @if($remainingCount > 0)
             <div class="avatar-bubble more" title="And more...">+{{ $remainingCount }}</div>
@@ -202,12 +214,27 @@
       </div>
       <!-- Testimonial snippet -->
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;margin-top:1.5rem;">
-        <div style="color:#ffc107;font-size:.85rem;letter-spacing:3px;margin-bottom:.8rem;">★★★★★</div>
-        <p style="font-size:.85rem;line-height:1.75;color:var(--w60);font-style:italic;margin-bottom:1rem;">"Hexafume understood our vision perfectly. They delivered a beautifully designed platform that exceeded every expectation."</p>
-        <div style="display:flex;align-items:center;gap:.75rem;">
-          <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-b));display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;">AP</div>
-          <div><div style="font-size:.82rem;font-weight:700;">Arete Properties</div><div style="font-size:.7rem;color:var(--w60);">Real Estate</div></div>
-        </div>
+        @if(!empty($aboutTestimonial))
+          <div style="color:#ffc107;font-size:.85rem;letter-spacing:3px;margin-bottom:.8rem;">★★★★★</div>
+          <p style="font-size:.85rem;line-height:1.75;color:var(--w60);font-style:italic;margin-bottom:1rem;">"{{ $aboutTestimonial->quote }}"</p>
+          <div style="display:flex;align-items:center;gap:.75rem;">
+            @if(!empty($aboutTestimonial->photo_url))
+              <div style="width:34px;height:34px;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,var(--blue),var(--blue-b));flex-shrink:0;">
+                <img src="{{ $aboutTestimonial->photo_url }}" alt="{{ $aboutTestimonial->client_name ?? $aboutTestimonial->company }}" style="width:100%;height:100%;object-fit:cover;display:block;">
+              </div>
+            @else
+              <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-b));display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0;">{{ $aboutTestimonial->initials ?? strtoupper(substr($aboutTestimonial->client_name ?? $aboutTestimonial->company ?? 'T', 0, 2)) }}</div>
+            @endif
+            <div><div style="font-size:.82rem;font-weight:700;">{{ $aboutTestimonial->client_name ?? $aboutTestimonial->company ?? 'Client' }}</div><div style="font-size:.7rem;color:var(--w60);">{{ $aboutTestimonial->role ?? $aboutTestimonial->location ?? '' }}</div></div>
+          </div>
+        @else
+          <div style="color:#ffc107;font-size:.85rem;letter-spacing:3px;margin-bottom:.8rem;">★★★★★</div>
+          <p style="font-size:.85rem;line-height:1.75;color:var(--w60);font-style:italic;margin-bottom:1rem;">"Hexafume understood our vision perfectly. They delivered a beautifully designed platform that exceeded every expectation."</p>
+          <div style="display:flex;align-items:center;gap:.75rem;">
+            <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-b));display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;">AP</div>
+            <div><div style="font-size:.82rem;font-weight:700;">Arete Properties</div><div style="font-size:.7rem;color:var(--w60);">Real Estate</div></div>
+          </div>
+        @endif
       </div>
     </div>
   </div>

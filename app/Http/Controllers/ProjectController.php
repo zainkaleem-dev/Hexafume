@@ -127,6 +127,7 @@ class ProjectController extends Controller
                     'initials' => $member->initials ?: strtoupper(substr($member->name, 0, 2)),
                     'dept' => $member->dept_label ?: ucfirst((string) $member->dept),
                     'exp' => $member->exp,
+                    'photo' => $member->photo_path ? asset('storage/' . $member->photo_path) : null,
                 ];
             })
             ->values();
@@ -138,9 +139,14 @@ class ProjectController extends Controller
             ->limit(5)
             ->pluck('dept_label');
 
+        $aboutTestimonial = \App\Models\Testimonial::query()
+            ->where('is_active', true)
+            ->orderBy('order_index')
+            ->first();
+
         $page = \App\Models\Page::where('slug', 'about')->first();
 
-        return view('about', compact('aboutTeamMembers', 'aboutTeamDepartments', 'page'));
+        return view('about', compact('aboutTeamMembers', 'aboutTeamDepartments', 'aboutTestimonial', 'page'));
     }
     
     public function servicesPage()

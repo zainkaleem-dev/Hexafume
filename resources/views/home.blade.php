@@ -313,6 +313,11 @@
   </div>
   @php($testimonialCount = isset($testimonials) ? count($testimonials) : 0)
   <div class="testi-carousel-shell" id="testiCarouselShell" data-testimonial-count="{{ $testimonialCount }}">
+    <button type="button" class="testi-arrow testi-arrow-left" id="testiPrev" aria-label="Previous testimonials">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+    </button>
     <div class="testi-grid" id="testiGrid">
     @foreach($testimonials as $i => $t)
       <div class="testi-card reveal" style="transition-delay: {{ $i * 120 }}ms;">
@@ -346,6 +351,12 @@
         </div>
       </div>
     @endforeach
+  </div>
+    <button type="button" class="testi-arrow testi-arrow-right" id="testiNext" aria-label="Next testimonials">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 6l6 6-6 6" />
+      </svg>
+    </button>
   </div>
 </section>
 

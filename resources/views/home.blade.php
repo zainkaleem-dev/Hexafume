@@ -147,7 +147,9 @@
         <img src="{{ asset('images/hexafume/hexafume-white.png') }}" alt="Hexafume - Think Big | IT Services & Digital Solutions" class="hero-logo-img" loading="eager" id="heroLogoSource">
       </div>
     </div>
+    </div>
   </div>
+  <div class="testi-dots" id="testiDots" aria-label="Testimonial navigation"></div>
 </section>
 
 <!-- MARQUEE -->
@@ -309,7 +311,9 @@
     <span class="section-badge"><span class="dot"></span>{{ $testimonialsHeader['badge'] ?? 'Client Love' }}</span>
     <h2 class="section-title" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-weight:500;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem;">{!! $testimonialsHeader['title'] ?? 'What Our Clients <span class="grad">Say</span>' !!}</h2>
   </div>
-  <div class="testi-grid" id="testiGrid">
+  @php($testimonialCount = isset($testimonials) ? count($testimonials) : 0)
+  <div class="testi-carousel-shell" id="testiCarouselShell" data-testimonial-count="{{ $testimonialCount }}">
+    <div class="testi-grid" id="testiGrid">
     @foreach($testimonials as $i => $t)
       <div class="testi-card reveal" style="transition-delay: {{ $i * 120 }}ms;">
         <div class="stars">★★★★★</div>
@@ -736,6 +740,89 @@
   };
   window.addEventListener('load', run, { once: true });
   window.addEventListener('resize', () => requestAnimationFrame(run));
+})();
+
+(function initTestimonialCarousel() {
+  const shell = document.getElementById('testiCarouselShell');
+  const grid = document.getElementById('testiGrid');
+  const dotsWrap = document.getElementById('testiDots');
+  if (!shell || !grid || !dotsWrap) return;
+
+  const count = Number(shell.dataset.testimonialCount || grid.children.length || 0);
+  if (count <= 3) {
+    shell.classList.add('is-static');
+    return;
+  }
+
+  shell.classList.add('is-carousel');
+
+  const cards = () => Array.from(grid.querySelectorAll('.testi-card'));
+  const getVisibleCount = () => {
+    if (window.innerWidth <= 700) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+  };
+
+  let activeIndex = 0;
+  let dots = [];
+  let raf = 0;
+
+  const buildDots = () => {
+    const totalPages = Math.max(1, Math.ceil(cards().length / getVisibleCount()));
+    const maxIndex = totalPages - 1;
+    activeIndex = Math.min(activeIndex, maxIndex);
+    dotsWrap.innerHTML = '';
+    dots = [];
+    for (let i = 0; i < totalPages; i++) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'testi-dot' + (i === activeIndex ? ' is-active' : '');
+      dot.setAttribute('aria-label', `Go to testimonial group ${i + 1}`);
+      dot.addEventListener('click', () => goToPage(i));
+      dotsWrap.appendChild(dot);
+      dots.push(dot);
+    }
+  };
+
+  const setActiveDot = (index) => {
+    activeIndex = index;
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+  };
+
+  const goToPage = (index) => {
+    const visible = getVisibleCount();
+    const firstCard = cards()[index * visible];
+    if (!firstCard) return;
+    setActiveDot(index);
+    grid.scrollTo({ left: firstCard.offsetLeft - grid.offsetLeft, behavior: 'smooth' });
+  };
+
+  const updateFromScroll = () => {
+    const visible = getVisibleCount();
+    const list = cards();
+    let page = 0;
+    list.forEach((card, index) => {
+      const start = card.offsetLeft - grid.offsetLeft;
+      if (grid.scrollLeft >= start - 20) {
+        page = Math.floor(index / visible);
+      }
+    });
+    setActiveDot(page);
+  };
+
+  const rebuild = () => {
+    buildDots();
+    goToPage(activeIndex);
+  };
+
+  grid.addEventListener('scroll', () => {
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(updateFromScroll);
+  }, { passive: true });
+
+  window.addEventListener('resize', () => requestAnimationFrame(rebuild));
+  buildDots();
+  goToPage(0);
 })();
 
 // ===== FORM SUBMIT =====

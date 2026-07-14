@@ -84,8 +84,8 @@ class PageSeeder extends Seeder
         ]]);
 
         \App\Models\PageSection::updateOrCreate(['page_id' => $home->id, 'section_key' => 'cta'], ['sort_order' => 9, 'content' => [
-            'title' => 'Ready to Think Big?',
-            'subtitle' => "Let's transform your vision into a digital masterpiece. Get in touch and let's build something extraordinary together.",
+            'title' => 'Ready to Build Your Next Digital Product?',
+            'subtitle' => "Partner with Hexafume to build scalable software, AI-powered solutions, SaaS platforms, and innovative digital products that help your business grow.",
             'btn1_text' => 'Start Your Project',
             'btn2_text' => 'Call Us Now',
         ]]);

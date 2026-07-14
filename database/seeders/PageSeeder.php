@@ -36,9 +36,9 @@ class PageSeeder extends Seeder
 
         \App\Models\PageSection::updateOrCreate(['page_id' => $home->id, 'section_key' => 'about'], ['sort_order' => 3, 'content' => [
             'badge' => 'Who We Are',
-            'title' => 'Transforming Ideas Into Digital Reality',
-            'desc_p1' => "At Hexafume, we're more than just a service provider we're a team of passionate professionals dedicated to empowering businesses with cutting-edge digital solutions.",
-            'desc_p2' => "Our mission is to be your trusted partner, guiding you through every step of your digital journey.",
+            'title' => 'A Software Development Partner for Digital Transformation',
+            'desc_p1' => "Hexafume is a software development company helping businesses build scalable digital products. Our team of engineers, designers, and technology experts creates custom software, AI solutions, SaaS platforms, and enterprise applications that solve real business challenges.",
+            'desc_p2' => "",
             'pillars' => [
                 ['title' => 'Innovation', 'desc' => 'Cutting Edge Tech', 'icon' => '🚀'],
                 ['title' => 'Performance', 'desc' => 'Optimized Solutions', 'icon' => '⚡'],
@@ -50,8 +50,8 @@ class PageSeeder extends Seeder
 
         \App\Models\PageSection::updateOrCreate(['page_id' => $home->id, 'section_key' => 'services_header'], ['sort_order' => 4, 'content' => [
             'badge' => 'What We Do',
-            'title' => 'Our Services <span class="grad">Era</span>',
-            'subtitle' => 'Comprehensive digital solutions that propel your business into the future'
+            'title' => 'Our Software Development <span class="grad">Services</span>',
+            'subtitle' => 'We provide end-to-end software development services including AI solutions, SaaS development, web applications, mobile apps, cloud infrastructure, and digital transformation solutions.'
         ]]);
 
         \App\Models\PageSection::updateOrCreate(['page_id' => $home->id, 'section_key' => 'process_header'], ['sort_order' => 5, 'content' => [

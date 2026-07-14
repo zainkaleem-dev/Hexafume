@@ -164,8 +164,8 @@
     <h2 style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-weight:500;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem;">
       {!! $aboutSection['title'] ?? 'Transforming Ideas Into <span class="grad">Digital Reality</span>' !!}
     </h2>
-    <p class="about-text">{{ $aboutSection['desc_p1'] ?? "At Hexafume, we're more than just a service provider we're a team of passionate professionals dedicated to empowering businesses with cutting-edge digital solutions." }}</p>
-    <p class="about-text">{{ $aboutSection['desc_p2'] ?? "Our mission is to be your trusted partner, guiding you through every step of your digital journey." }}</p>
+    <p class="about-text">{{ $aboutSection['desc_p1'] ?? "Hexafume is a software development company helping businesses build scalable digital products. Our team of engineers, designers, and technology experts creates custom software, AI solutions, SaaS platforms, and enterprise applications that solve real business challenges." }}</p>
+    <p class="about-text">{{ $aboutSection['desc_p2'] ?? "" }}</p>
     <div class="about-pillars">
       @if(isset($aboutSection['pillars']))
         @php
@@ -214,8 +214,8 @@
   <div class="services-inner">
     <div class="services-head reveal">
       <span class="section-badge"><span class="dot"></span>{{ $servicesHeader['badge'] ?? 'What We Do' }}</span>
-      <h2 class="section-title" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-weight:500;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem;">{!! $servicesHeader['title'] ?? 'Our Services <span class="grad">Era</span>' !!}</h2>
-      <p class="section-sub">{{ $servicesHeader['subtitle'] ?? 'Comprehensive digital solutions that propel your business into the future' }}</p>
+      <h2 class="section-title" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-weight:500;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem;">{!! $servicesHeader['title'] ?? 'Our Software Development <span class="grad">Services</span>' !!}</h2>
+      <p class="section-sub">{{ $servicesHeader['subtitle'] ?? 'We provide end-to-end software development services including AI solutions, SaaS development, web applications, mobile apps, cloud infrastructure, and digital transformation solutions.' }}</p>
     </div>
     <div class="services-grid" id="servicesGrid">
       @foreach($services as $i => $s)

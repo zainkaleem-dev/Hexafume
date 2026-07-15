@@ -156,7 +156,7 @@
       <h2>{!! $teamTeaser['title'] ?? 'Brilliant Minds, <span class="grad">One Team</span>' !!}</h2>
       <p>{{ $teamTeaser['subtitle'] ?? 'We are engineers, designers, strategists, and researchers united by a shared obsession.' }}</p>
       <div class="team-highlights">
-        @foreach($teamTeaser['highlights'] ?? [] as $highlight)
+        @foreach($aboutTeamHighlights ?? [] as $highlight)
           <div class="team-highlight-item">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
             @if(str_contains($highlight, 'active team members'))

@@ -134,10 +134,14 @@ class ProjectController extends Controller
 
         $aboutTeamDepartments = TeamMember::query()
             ->where('show_on_team', true)
-            ->whereNotNull('dept_label')
-            ->distinct('dept_label')
-            ->limit(5)
-            ->pluck('dept_label');
+            ->get()
+            ->map(function (TeamMember $member) {
+                return trim((string) ($member->dept_label ?: ucfirst((string) $member->dept)));
+            })
+            ->filter()
+            ->unique()
+            ->take(5)
+            ->values();
 
         $aboutTestimonial = \App\Models\Testimonial::query()
             ->where('is_active', true)
@@ -145,8 +149,21 @@ class ProjectController extends Controller
             ->first();
 
         $page = \App\Models\Page::where('slug', 'about')->first();
+        $teamTeaserSection = $page ? $page->getSectionContent('team_teaser') : [];
+        $aboutTeamHighlights = collect($teamTeaserSection['highlights'] ?? [])
+            ->filter(fn ($item) => filled(trim((string) $item)))
+            ->values();
 
-        return view('about', compact('aboutTeamMembers', 'aboutTeamDepartments', 'aboutTestimonial', 'page'));
+        if ($aboutTeamHighlights->isEmpty()) {
+            $aboutTeamHighlights = collect([
+                'active team members',
+                'core disciplines represented',
+                'Built from live team data',
+                'Updated as members are added',
+            ]);
+        }
+
+        return view('about', compact('aboutTeamMembers', 'aboutTeamDepartments', 'aboutTeamHighlights', 'aboutTestimonial', 'page'));
     }
     
     public function servicesPage()

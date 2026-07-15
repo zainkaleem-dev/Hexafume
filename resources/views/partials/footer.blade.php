@@ -2,7 +2,7 @@
 <footer>
   <div class="footer-brand footer-col">
     <div class="footer-brand-name" >
-      <img class="footer-logo-img" src="{{ asset('images/hexafume/hexafume-white.png') }}" alt="Hexafume"  style="height:70px !important;" 
+      <img class="footer-logo-img" src="{{ asset('images/hexafume/hexafume-white.png') }}" alt="Hexafume" width="210" height="70" style="width:210px !important;height:70px !important;max-width:210px;max-height:70px;object-fit:contain;display:block;" 
       onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/>
       <span style="display:none;">HEXA<span class="dot">FUME</span></span>
     </div>

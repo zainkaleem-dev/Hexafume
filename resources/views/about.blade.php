@@ -15,8 +15,8 @@
       <div class="preloader-ring-progress" id="ringProgress"></div>
     </div>
     <div class="preloader-logo-center">
-      <img src="{{ asset('images/hexafume/hexafume-white.png') }}" id="preloader-img" alt="Hexafume"
-        style="height:80px;width:auto;filter:brightness(1.1);"
+      <img src="{{ asset('images/hexafume/hexafume-white.png') }}" id="preloader-img" alt="Hexafume" width="240" height="80"
+        style="width:240px;height:80px;max-width:240px;max-height:80px;object-fit:contain;display:block;filter:brightness(1.1);"
         onerror="this.style.display='none';document.getElementById('preloader-fallback').style.display='block'"/>
       <div class="preloader-logo" id="preloader-fallback" style="display:none;">HEXA<span>FUME</span></div>
     </div>
@@ -190,7 +190,7 @@
           @foreach($avatarFirstRow as $member)
             <div class="avatar-bubble {{ !empty($member['photo']) ? 'has-photo' : '' }}" title="{{ $member['name'] }}">
               @if(!empty($member['photo']))
-                <img src="{{ $member['photo'] }}" alt="{{ $member['name'] }}" loading="lazy">
+                <img src="{{ $member['photo'] }}" alt="{{ $member['name'] }}" loading="lazy" width="56" height="56" style="width:100%;height:100%;min-width:100%;min-height:100%;object-fit:cover;object-position:center top;display:block;">
               @else
                 {{ $member['initials'] }}
               @endif
@@ -201,7 +201,7 @@
           @foreach($avatarSecondRow as $member)
             <div class="avatar-bubble {{ !empty($member['photo']) ? 'has-photo' : '' }}" title="{{ $member['name'] }}">
               @if(!empty($member['photo']))
-                <img src="{{ $member['photo'] }}" alt="{{ $member['name'] }}" loading="lazy">
+                <img src="{{ $member['photo'] }}" alt="{{ $member['name'] }}" loading="lazy" width="56" height="56" style="width:100%;height:100%;min-width:100%;min-height:100%;object-fit:cover;object-position:center top;display:block;">
               @else
                 {{ $member['initials'] }}
               @endif
@@ -220,7 +220,7 @@
           <div style="display:flex;align-items:center;gap:.75rem;">
             @if(!empty($aboutTestimonial->photo_url))
               <div style="width:34px;height:34px;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,var(--blue),var(--blue-b));flex-shrink:0;">
-                <img src="{{ $aboutTestimonial->photo_url }}" alt="{{ $aboutTestimonial->client_name ?? $aboutTestimonial->company }}" style="width:100%;height:100%;object-fit:cover;display:block;">
+                <img src="{{ $aboutTestimonial->photo_url }}" alt="{{ $aboutTestimonial->client_name ?? $aboutTestimonial->company }}" width="34" height="34" style="width:34px;height:34px;max-width:34px;max-height:34px;object-fit:cover;object-position:center top;display:block;">
               </div>
             @else
               <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-b));display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0;">{{ $aboutTestimonial->initials ?? strtoupper(substr($aboutTestimonial->client_name ?? $aboutTestimonial->company ?? 'T', 0, 2)) }}</div>

@@ -14,7 +14,7 @@
     <div class="preloader-ring-track"></div>
     <div class="preloader-ring-progress" id="ringProgress"></div>
     <div class="preloader-logo-center">
-      <img src="{{ asset('images/hexafume/hexafume-white.png') }}" id="preloader-img" alt="Hexafume" style="height:80px;width:auto;filter:brightness(1.1);" onerror="this.style.display='none';document.getElementById('preloader-fallback').style.display='block'"/>
+      <img src="{{ asset('images/hexafume/hexafume-white.png') }}" id="preloader-img" alt="Hexafume" width="240" height="80" style="width:240px;height:80px;max-width:240px;max-height:80px;object-fit:contain;display:block;filter:brightness(1.1);" onerror="this.style.display='none';document.getElementById('preloader-fallback').style.display='block'"/>
       <div class="preloader-logo" id="preloader-fallback" style="display:none;">HEXA<span>FUME</span></div>
     </div>
   </div>

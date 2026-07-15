@@ -66,12 +66,12 @@
     <!-- Hero image strip -->
     <div class="hero-strip">
       @if($project->hero_image_url)
-        <img src="{{ $project->hero_image_url }}" alt="{{ $project->name }} Hero" class="hero-strip-img"
+        <img src="{{ $project->hero_image_url }}" alt="{{ $project->name }} Hero" class="hero-strip-img" width="1200" height="700" style="max-width:100%;max-height:700px;object-fit:cover;display:block;"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
       @endif
       <div class="hero-strip-fallback" @if($project->hero_image_url) style="display:none;" @endif>
         @if($project->logo_image_url)
-            <img src="{{ $project->logo_image_url }}" alt="{{ $project->name }} Logo" class="hero-strip-logo"
+            <img src="{{ $project->logo_image_url }}" alt="{{ $project->name }} Logo" class="hero-strip-logo" width="180" height="180" style="width:180px;height:180px;max-width:180px;max-height:180px;object-fit:contain;display:block;"
               onerror="this.style.display='none'"/>
         @else
             <h2 style="color:rgba(255,255,255,0.2); font-size:3rem;">{{ $project->name }}</h2>
@@ -258,7 +258,7 @@
       <div class="port-card reveal">
         <div class="port-thumb2">
           @if($related->image_url)
-            <img src="{{ $related->image_url }}" alt="{{ $related->name }}" class="port-thumb2-img"/>
+            <img src="{{ $related->image_url }}" alt="{{ $related->name }}" class="port-thumb2-img" width="900" height="600" style="width:100%;height:180px;max-width:100%;max-height:180px;object-fit:cover;display:block;"/>
           @else
             <div style="width:100%; height:180px; background:var(--surface2); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--w40);">{{ $related->name }}</div>
           @endif

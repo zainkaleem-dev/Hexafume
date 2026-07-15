@@ -89,8 +89,8 @@
       <div class="preloader-ring-progress" id="ringProgress"></div>
     </div>
     <div class="preloader-logo-center">
-      <img src="{{ asset('images/hexafume/hexafume-white.png') }}" id="preloader-img" alt="Hexafume"
-        style="height:80px;width:auto;filter:brightness(1.1);"
+      <img src="{{ asset('images/hexafume/hexafume-white.png') }}" id="preloader-img" alt="Hexafume" width="240" height="80"
+        style="width:240px;height:80px;max-width:240px;max-height:80px;object-fit:contain;display:block;filter:brightness(1.1);"
         onerror="this.style.display='none';document.getElementById('preloader-fallback').style.display='block'"/>
       <div class="preloader-logo" id="preloader-fallback" style="display:none;">HEXA<span>FUME</span></div>
     </div>
@@ -144,7 +144,7 @@
       <div class="logo-wrap">
         <div class="logo-glow"></div>
         <canvas id="logoSandCanvas" class="logo-sand-canvas"></canvas>
-        <img src="{{ asset('images/hexafume/hexafume-white.png') }}" alt="Hexafume - Think Big | IT Services & Digital Solutions" class="hero-logo-img" loading="eager" id="heroLogoSource">
+        <img src="{{ asset('images/hexafume/hexafume-white.png') }}" alt="Hexafume - Think Big | IT Services & Digital Solutions" class="hero-logo-img" loading="eager" id="heroLogoSource" width="360" height="120" style="width:100%;height:auto;max-width:360px;max-height:120px;object-fit:contain;display:block;">
       </div>
     </div>
     </div>
@@ -279,10 +279,10 @@
         <div class="portfolio-card reveal" style="transition-delay: {{ $i * 100 }}ms;">
           <div class="port-thumb" style="position:relative;overflow:hidden;background:var(--surface2);">
             @if($p->hero_image_url)
-              <img src="{{ $p->hero_image_url }}" alt="Project Showcase: {{ $p->name }} - {{ $p->type }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0.4;" loading="lazy">
+              <img src="{{ $p->hero_image_url }}" alt="Project Showcase: {{ $p->name }} - {{ $p->type }}" width="1200" height="800" style="position:absolute;inset:0;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:cover;object-position:top;display:block;opacity:0.4;" loading="lazy">
             @endif
             @if($p->logo_image_url)
-              <img src="{{ $p->logo_image_url }}" alt="{{ $p->name }} Logo" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:auto;z-index:2;filter:drop-shadow(0 10px 20px rgba(0,0,0,0.5));">
+              <img src="{{ $p->logo_image_url }}" alt="{{ $p->name }} Logo" width="120" height="120" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;max-width:120px;max-height:120px;object-fit:contain;display:block;z-index:2;filter:drop-shadow(0 10px 20px rgba(0,0,0,0.5));">
             @endif
             <span class="port-cat">{{ $p->type }}</span>
           </div>

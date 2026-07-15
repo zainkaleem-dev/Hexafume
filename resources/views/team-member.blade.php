@@ -21,8 +21,8 @@
       <div class="preloader-ring-progress" id="ringProgress"></div>
     </div>
     <div class="preloader-logo-center">
-      <img src="{{ asset('images/hexafume/hexafume-white.png') }}" id="preloader-img" alt="Hexafume"
-        style="height:80px;width:auto;filter:brightness(1.1);"
+      <img src="{{ asset('images/hexafume/hexafume-white.png') }}" id="preloader-img" alt="Hexafume" width="240" height="80"
+        style="width:240px;height:80px;max-width:240px;max-height:80px;object-fit:contain;display:block;filter:brightness(1.1);"
         onerror="this.style.display='none';document.getElementById('preloader-fallback').style.display='block'"/>
       <div class="preloader-logo" id="preloader-fallback" style="display:none;">HEXA<span>FUME</span></div>
     </div>
@@ -129,7 +129,7 @@ function renderProfile(member) {
 
   const photoFrame = document.getElementById('photoFrame');
   if (member.photo) {
-    photoFrame.innerHTML = `<img src="${member.photo}" alt="${member.name}"><div class="photo-glow"></div><div class="photo-corner-badge">${member.deptLabel}</div><div class="exp-badge">${member.exp} exp.</div>`;
+    photoFrame.innerHTML = `<img src="${member.photo}" alt="${member.name}" width="720" height="900" style="width:100%;height:100%;max-width:100%;max-height:100%;object-fit:cover;display:block;"><div class="photo-glow"></div><div class="photo-corner-badge">${member.deptLabel}</div><div class="exp-badge">${member.exp} exp.</div>`;
   } else {
     photoFrame.innerHTML = `<div class="profile-photo-initials"><div class="initials-circle">${member.initials}</div></div><div class="photo-glow"></div><div class="photo-corner-badge">${member.deptLabel}</div><div class="exp-badge">${member.exp} exp.</div>`;
   }
@@ -154,7 +154,7 @@ function renderProfile(member) {
   otherGrid.innerHTML = others.map(m=>`
     <a href="${m.profile}" class="other-card reveal">
       <div class="other-photo">
-        ${m.photo ? `<img src="${m.photo}" alt="${m.name}">` : `<div class="other-avatar">${m.initials}</div>`}
+        ${m.photo ? `<img src="${m.photo}" alt="${m.name}" width="320" height="320" style="width:100%;height:100%;max-width:100%;max-height:100%;object-fit:cover;display:block;">` : `<div class="other-avatar">${m.initials}</div>`}
       </div>
       <div class="other-body">
         <div class="other-name">${m.name}</div>

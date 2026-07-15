@@ -190,7 +190,7 @@
           @foreach($avatarFirstRow as $member)
             <div class="avatar-bubble {{ !empty($member['photo']) ? 'has-photo' : '' }}" title="{{ $member['name'] }}">
               @if(!empty($member['photo']))
-                <img src="{{ $member['photo'] }}" alt="{{ $member['name'] }}" loading="lazy" width="56" height="56" style="width:100%;height:100%;min-width:100%;min-height:100%;object-fit:cover;object-position:center top;display:block;">
+                <img src="{{ $member['photo'] }}" alt="{{ $member['name'] }}" loading="lazy" width="56" height="56" style="width:100%;height:100%;min-width:100%;min-height:100%;border-radius:50%;object-fit:cover;object-position:center top;display:block;">
               @else
                 {{ $member['initials'] }}
               @endif
@@ -201,7 +201,7 @@
           @foreach($avatarSecondRow as $member)
             <div class="avatar-bubble {{ !empty($member['photo']) ? 'has-photo' : '' }}" title="{{ $member['name'] }}">
               @if(!empty($member['photo']))
-                <img src="{{ $member['photo'] }}" alt="{{ $member['name'] }}" loading="lazy" width="56" height="56" style="width:100%;height:100%;min-width:100%;min-height:100%;object-fit:cover;object-position:center top;display:block;">
+                <img src="{{ $member['photo'] }}" alt="{{ $member['name'] }}" loading="lazy" width="56" height="56" style="width:100%;height:100%;min-width:100%;min-height:100%;border-radius:50%;object-fit:cover;object-position:center top;display:block;">
               @else
                 {{ $member['initials'] }}
               @endif

@@ -99,10 +99,10 @@
 .office-status .sdot{width:6px;height:6px;border-radius:50%;background:#00e676;animation:pulse 2s infinite;}
 
 @media(max-width:1024px){
-  .page-hero-inner{padding:8rem 2rem 4rem;}
-  .contact-main{grid-template-columns:1fr;gap:3rem;padding:4rem 2rem 5rem;}
-  .map-strip{padding:4rem 2rem;}
-  .offices-section{padding:4rem 2rem 5rem;}
+  .page-hero-inner{padding:8rem 1.5rem 4rem;}
+  .contact-main{grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem 5rem;}
+  .map-strip{padding:4rem 1.5rem;}
+  .offices-section{padding:4rem 1.5rem 5rem;}
   .offices-grid{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:640px){

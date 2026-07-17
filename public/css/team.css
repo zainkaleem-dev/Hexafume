@@ -220,13 +220,13 @@
 .join-btns{display:flex;gap:1rem;justify-content:center;position:relative;z-index:2;}
 
 @media(max-width:1024px){
-  .team-hero-inner{padding:9rem 2rem 4rem;}
-  .filter-section{padding:2rem 2rem;}
-  .team-section{padding:0 2rem 5rem;}
-  .culture-section{padding:4rem 2rem;}
+  .team-hero-inner{padding:9rem 1.5rem 4rem;}
+  .filter-section{padding:2rem 1.5rem;}
+  .team-section{padding:0 1.5rem 5rem;}
+  .culture-section{padding:4rem 1.5rem;}
   .culture-grid{grid-template-columns:repeat(2,1fr);}
-  .join-section{padding:0 2rem 5rem;}
-  .join-card{padding:3rem 2rem;}
+  .join-section{padding:0 1.5rem 5rem;}
+  .join-card{padding:3rem 1.5rem;}
   .hero-stats-row{gap:2rem;}
 }
 @media(max-width:600px){

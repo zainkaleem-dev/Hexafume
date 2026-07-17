@@ -75,12 +75,12 @@
 .services-cta p{font-size:.95rem;color:var(--w60);max-width:480px;margin:0 auto 2.5rem;line-height:1.8;}
 
 @media(max-width:1024px){
-  .services-section{padding:4rem 2rem 5rem;}
-  .features-strip{padding:4rem 2rem;}
+  .services-section{padding:4rem 1.5rem 5rem;}
+  .features-strip{padding:4rem 1.5rem;}
   .features-grid{grid-template-columns:repeat(2,1fr);}
-  .tech-section{padding:4rem 2rem;}
+  .tech-section{padding:4rem 1.5rem;}
   .tech-categories{grid-template-columns:1fr 1fr;}
-  .services-cta{padding:5rem 2rem;}
+  .services-cta{padding:5rem 1.5rem;}
   .svc-big-card{grid-template-columns:48px 1fr;}
   .svc-big-cta{display:none;}
 }

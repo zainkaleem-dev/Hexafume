@@ -158,7 +158,7 @@
 </div>
 
 <!-- ABOUT -->
-<section id="about" style="padding:3rem 1.5rem;max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
+<section id="about" style="padding:3rem 4rem;max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
   <div class="reveal">
     <span class="about-badge"><span class="dot"></span>{{ $aboutSection['badge'] ?? 'Who We Are' }}</span>
     <h2 style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-weight:500;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem;">
@@ -240,7 +240,7 @@
 </section>
 
 <!-- PROCESS -->
-<section id="process" aria-labelledby="processHeader" style="padding:4rem 1.5rem;max-width:1300px;margin:0 auto;">
+<section id="process" aria-labelledby="processHeader" style="padding:4rem 4rem;max-width:1300px;margin:0 auto;">
   <div class="process-head reveal">
     <span class="section-badge"><span class="dot"></span>{{ $processHeader['badge'] ?? 'How We Work' }}</span>
     <h2 id="processHeader" class="section-title" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-weight:500;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem;">{!! $processHeader['title'] ?? 'Our Standard <br><span class="grad">Work Process</span>' !!}</h2>
@@ -306,7 +306,7 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section id="testimonials" style="padding:3.5rem 1.5rem;max-width:1300px;margin:0 auto;">
+<section id="testimonials" style="padding:3.5rem 4rem;max-width:1300px;margin:0 auto;">
   <div class="testi-head reveal">
     <span class="section-badge"><span class="dot"></span>{{ $testimonialsHeader['badge'] ?? 'Client Love' }}</span>
     <h2 class="section-title" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-weight:500;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem;">{!! $testimonialsHeader['title'] ?? 'What Our Clients <span class="grad">Say</span>' !!}</h2>
@@ -361,7 +361,7 @@
 </section>
 
 <!-- CTA -->
-<section id="cta">
+<section id="cta" style="padding:9rem 4rem;">
   <div class="cta-glow"></div>
   <div class="cta-inner reveal">
     <span class="section-badge"><span class="dot"></span>Get In Touch</span>

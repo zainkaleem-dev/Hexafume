@@ -254,7 +254,7 @@ class ProjectController extends Controller
                     'category' => $project->client_name ?? 'N/A',
                     'desc' => \Illuminate\Support\Str::limit($project->overview_p1 ?? '', 130),
                     'delivered' => (bool) $project->delivered_on_time,
-                    'logo_image_url' => $project->logo_image_url,
+                    'logo_image_url' => $project->display_image_url,
                 ];
             })
             ->values();

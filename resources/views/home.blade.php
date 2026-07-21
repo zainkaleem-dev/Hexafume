@@ -1,4 +1,4 @@
-@extends('layouts.app')
+﻿@extends('layouts.app')
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -144,7 +144,7 @@
       <div class="logo-wrap">
         <div class="logo-glow"></div>
         <canvas id="logoSandCanvas" class="logo-sand-canvas"></canvas>
-        <img src="{{ asset('images/hexafume/hexafume-white.png') }}" alt="Hexafume - Think Big | IT Services & Digital Solutions" class="hero-logo-img" loading="eager" id="heroLogoSource" width="360" height="120" style="width:100%;height:auto;max-width:360px;max-height:120px;object-fit:contain;display:block;">
+        <img src="{{ asset('images/hexafume/hexafume-white.png') }}" alt="Hexafume - Think Big | IT Services & Digital Solutions" class="hero-logo-img" loading="eager" id="heroLogoSource" width="360" height="200" style="width:100%;height:auto;max-width:360px;max-height:120px;object-fit:contain;display:block;">
       </div>
     </div>
     </div>

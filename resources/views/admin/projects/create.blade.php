@@ -490,7 +490,7 @@
             </select>
           </div>
           <div class="form-group" style="margin-bottom:.9rem;">
-            <label>Publish Date</label>
+            <label>Publish Date <span class="required">*</span></label>
             <input type="date" id="publishDate" name="publish_at"/>
           </div>
           <div class="form-group">

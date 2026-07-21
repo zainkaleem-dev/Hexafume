@@ -328,7 +328,10 @@ class ProjectController extends Controller
             'show_portfolio' => 'boolean',
             'is_featured' => 'boolean',
             'visibility' => 'required|in:public,private,password',
-            'publish_at' => 'nullable|date',
+            'publish_at' => 'required|date',
+        ], [
+            'publish_at.required' => 'Publish Date is required.',
+            'publish_at.date' => 'Publish Date must be a valid date.',
         ]);
 
         // Handle File Uploads
@@ -467,7 +470,10 @@ class ProjectController extends Controller
             'show_portfolio' => 'boolean',
             'is_featured' => 'boolean',
             'visibility' => 'required|in:public,private,password',
-            'publish_at' => 'nullable|date',
+            'publish_at' => 'required|date',
+        ], [
+            'publish_at.required' => 'Publish Date is required.',
+            'publish_at.date' => 'Publish Date must be a valid date.',
         ]);
 
         if ($request->hasFile('hero_image')) {

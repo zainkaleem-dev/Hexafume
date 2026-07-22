@@ -43,7 +43,7 @@
     </nav>
     <div class="hero-eyebrow">
       <span class="dot-live"></span>
-      {{ $teamStats['members'] ?? 0 }} Specialists &amp; Growing
+      35+ Specialists &amp; Growing
     </div>
     <h1>{!! $hero['title'] ?? 'The Minds Behind<br>the <span class="grad">Magic</span>' !!}</h1>
     <p class="hero-sub">{{ $hero['subtitle'] ?? 'We are a team of engineers, designers, strategists, and dreamers united by one mission — turning bold ideas into scalable digital realities.' }}</p>
